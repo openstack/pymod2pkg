@@ -53,7 +53,7 @@ def openstack_prefix_tr(mod):
 
 RDO_PKG_MAP = [
     # This demonstrates per-dist filter
-    #SingleRule('sphinx', 'python-sphinx',
+    # SingleRule('sphinx', 'python-sphinx',
     #           distmap={'epel-6': 'python-sphinx10'}),
     SingleRule('distribute', 'python-setuptools'),
     SingleRule('pyopenssl', 'pyOpenSSL'),

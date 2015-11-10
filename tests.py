@@ -49,7 +49,7 @@ class Pymod2PkgTests(unittest.TestCase):
         self.assertEqual(pymod2pkg.module2package('Babel', 'fedora'),
                          'python-babel')
         self.assertEqual(pymod2pkg.module2package('nova', 'fedora'),
-                        'openstack-nova')
+                         'openstack-nova')
 
 
 if __name__ == '__main__':

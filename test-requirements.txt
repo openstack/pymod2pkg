@@ -1,0 +1,4 @@
+flake8
+testrepository>=0.0.18
+testresources>=0.2.4
+testtools>=1.4.0
