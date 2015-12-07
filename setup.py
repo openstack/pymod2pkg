@@ -16,7 +16,7 @@ pymod2pkg_classifiers = [
     "Topic :: Utilities",
 ]
 
-with open("README.md", "r") as fp:
+with open("README.rst", "r") as fp:
     pymod2pkg_long_description = fp.read()
 
 setup(name="pymod2pkg",
