@@ -78,6 +78,7 @@ RDO_PKG_MAP = [
     SingleRule('qpid-python', 'python-qpid'),
     SingleRule('posix_ipc', 'python-posix_ipc'),
     SingleRule('oslosphinx', 'python-oslo-sphinx'),
+    SingleRule('pyinotify', 'python-inotify'),
     MultiRule(
         mods=['PyYAML', 'm2crypto', 'numpy', 'pyflakes', 'pylint', 'pyparsing',
               'pytz', 'pysendfile', 'libvirt-python'],
