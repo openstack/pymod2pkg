@@ -73,6 +73,8 @@ RDO_PKG_MAP = [
     SingleRule('pycrypto', 'python-crypto'),
     SingleRule('pyzmq', 'python-zmq'),
     SingleRule('mysql-python', 'MySQL-python'),
+    SingleRule('PyMySQL', 'python-PyMySQL'),
+    SingleRule('MySQL-python', 'MySQL-python'),
     SingleRule('PasteDeploy', 'python-paste-deploy'),
     SingleRule('sqlalchemy-migrate', 'python-migrate'),
     SingleRule('qpid-python', 'python-qpid'),
