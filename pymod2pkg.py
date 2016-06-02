@@ -10,6 +10,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from __future__ import print_function
+
+import argparse
+import platform
 import re
 
 
@@ -141,3 +145,20 @@ def module2package(mod, dist, pkg_map=None):
             return pkg
     tr_func = get_default_tr_func(dist)
     return tr_func(mod)
+
+
+def main():
+    """for resolving names from command line"""
+    parser = argparse.ArgumentParser(description='Python module name to'
+                                     'package name')
+    parser.add_argument('--dist', help='distribution style '
+                        '(default: %(default)s)',
+                        default=platform.linux_distribution()[0])
+    parser.add_argument('modulename', help='python module name')
+    args = vars(parser.parse_args())
+    print(module2package(args['modulename'], args['dist']))
+
+
+# for debugging to call the file directly
+if __name__ == "__main__":
+    main()
