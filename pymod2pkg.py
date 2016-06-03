@@ -17,9 +17,6 @@ import platform
 import re
 
 
-__version__ = '0.3'
-
-
 class TranslationRule(object):
     pass
 
