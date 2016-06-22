@@ -51,6 +51,15 @@ class Pymod2PkgTests(unittest.TestCase):
         self.assertEqual(pymod2pkg.module2package('nova', 'fedora'),
                          'openstack-nova')
 
+    def test_translation_horizon_plugins(self):
+        self.assertEqual(pymod2pkg.module2package('sahara-dashboard',
+                                                  'fedora'),
+                         'openstack-sahara-ui')
+        self.assertEqual(pymod2pkg.module2package('magnum-ui', 'fedora'),
+                         'openstack-magnum-ui')
+        self.assertEqual(pymod2pkg.module2package('zomg-dashboard', 'fedora'),
+                         'openstack-zomg-ui')
+
 
 class RegexRuleTests(unittest.TestCase):
     def test_regex_rule(self):

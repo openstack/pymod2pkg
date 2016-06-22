@@ -75,6 +75,11 @@ def openstack_prefix_tr(mod):
     return 'openstack-' + mod
 
 
+def rdo_horizon_plugins_tr(mod):
+    mod = mod.replace('dashboard', 'ui')
+    return 'openstack-' + mod
+
+
 RDO_PKG_MAP = [
     # This demonstrates per-dist filter
     # SingleRule('sphinx', 'python-sphinx',
@@ -100,6 +105,8 @@ RDO_PKG_MAP = [
     MultiRule(
         mods=['nova', 'keystone', 'glance', 'swift', 'neutron'],
         pkgfun=openstack_prefix_tr),
+    # Horizon plugins (normalized to openstack-<project>-ui)
+    RegexRule(pattern=r'\w+-(dashboard|ui)', pkgfun=rdo_horizon_plugins_tr)
 ]
 
 
