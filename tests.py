@@ -52,5 +52,17 @@ class Pymod2PkgTests(unittest.TestCase):
                          'openstack-nova')
 
 
+class RegexRuleTests(unittest.TestCase):
+    def test_regex_rule(self):
+
+        def dummy_tr(mod):
+            mod = mod.replace('dashboard', 'ui')
+            return "openstack-{}".format(mod)
+
+        rule = pymod2pkg.RegexRule(r'\w+-(dashboard|ui)', dummy_tr)
+        self.assertEqual(rule('dummy-dashboard', 'rdo'), 'openstack-dummy-ui')
+        self.assertEqual(rule('dummy-ui', 'rdo'), 'openstack-dummy-ui')
+
+
 if __name__ == '__main__':
     unittest.main()

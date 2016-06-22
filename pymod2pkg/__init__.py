@@ -48,6 +48,17 @@ class MultiRule(TranslationRule):
         return None
 
 
+class RegexRule(TranslationRule):
+    def __init__(self, pattern, pkgfun):
+        self.pattern = pattern
+        self.pkgfun = pkgfun
+
+    def __call__(self, mod, dist):
+        if re.match(self.pattern, mod):
+            return self.pkgfun(mod)
+        return None
+
+
 def default_rdo_tr(mod):
     pkg = mod.rsplit('-python')[0]
     pkg = pkg.replace('_', '-').replace('.', '-').lower()
