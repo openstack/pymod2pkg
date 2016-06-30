@@ -68,7 +68,9 @@ RDO_PKG_MAP = [
     # This demonstrates per-dist filter
     # SingleRule('sphinx', 'python-sphinx',
     #           distmap={'epel-6': 'python-sphinx10'}),
+    SingleRule('Babel', 'python-babel'),
     SingleRule('distribute', 'python-setuptools'),
+    SingleRule('google-api-python-client', 'python-google-api-client'),
     SingleRule('pyopenssl', 'pyOpenSSL'),
     SingleRule('IPy', 'python-IPy'),
     SingleRule('pycrypto', 'python-crypto'),
@@ -82,6 +84,8 @@ RDO_PKG_MAP = [
     SingleRule('posix_ipc', 'python-posix_ipc'),
     SingleRule('oslosphinx', 'python-oslo-sphinx'),
     SingleRule('pyinotify', 'python-inotify'),
+    SingleRule('tripleo-incubator', 'openstack-tripleo'),
+    SingleRule('python-pika-pool', 'python-pika_pool'),
     MultiRule(
         mods=['PyYAML', 'm2crypto', 'numpy', 'pyflakes', 'pylint', 'pyparsing',
               'pytz', 'pysendfile', 'libvirt-python'],
