@@ -86,8 +86,16 @@ RDO_PKG_MAP = [
         mods=['PyYAML', 'm2crypto', 'numpy', 'pyflakes', 'pylint', 'pyparsing',
               'pytz', 'pysendfile', 'libvirt-python'],
         pkgfun=lambda x: x),
+    # OpenStack services
     MultiRule(
-        mods=['nova', 'keystone', 'glance', 'swift', 'neutron'],
+        # keep lists in alphabetic order
+        mods=['aodh', 'barbican', 'ceilometer', 'cinder', 'cloudkitty',
+              'designate', 'ec2-api', 'glance', 'heat', 'heat-templates',
+              'ironic', 'ironic-discoverd', 'ironic-inspector',
+              'ironic-python-agent', 'keystone', 'magnum', 'manila',
+              'mistral', 'murano', 'neutron', 'neutron-fwaas', 'neutron-lbaas',
+              'neutron-vpnaas', 'nova', 'octavia', 'rally', 'sahara', 'swift',
+              'tempest', 'trove', 'tuskar', 'vitrage', 'zaqar'],
         pkgfun=openstack_prefix_tr),
 ]
 
