@@ -134,14 +134,13 @@ SUSE_PKG_MAP = [
         pkgfun=openstack_prefix_tr),
     # OpenStack clients
     MultiRule(
-        mods=['python-ceilometerclient', 'python-cinderclient',
-              'python-designateclient', 'python-glanceclient',
-              'python-heatclient', 'python-ironicclient',
-              'python-keystoneclient', 'python-manilaclient',
-              'python-neutronclient', 'python-novaclient',
-              'python-saharaclient', 'python-swiftclient',
-              'python-troveclient', 'python-tuskarclient',
-              'python-zaqarclient'],
+        mods=['python-%sclient' % c for c in (
+                  'k8s', 'aodh', 'barbican', 'ceilometer', 'congress',
+                  'designate', 'heat', 'glance', 'ironic', 'keystone',
+                  'magnum', 'manila', 'mistral', 'murano', 'monasca',
+                  'neutron', 'nova', 'openstack', 'sahara', 'searchlight',
+                  'senlin', 'smaug', 'solum', 'swift', 'tacker', 'trove',
+                  'watcher', 'zaqar')],
         pkgfun=lambda x: x),
 ]
 
