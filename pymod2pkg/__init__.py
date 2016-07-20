@@ -103,6 +103,7 @@ RDO_PKG_MAP = [
     SingleRule('tripleo-incubator', 'openstack-tripleo'),
     SingleRule('python-pika-pool', 'python-pika_pool'),
     SingleRule('suds-jurko', 'python-suds'),
+    SingleRule('wsgi_intercept', 'python-wsgi_intercept'),
     MultiRule(
         mods=['PyYAML', 'm2crypto', 'numpy', 'pyflakes', 'pylint', 'pyparsing',
               'pytz', 'pysendfile', 'libvirt-python'],
