@@ -101,7 +101,7 @@ RDO_PKG_MAP = [
     SingleRule('oslosphinx', 'python-oslo-sphinx'),
     SingleRule('pyinotify', 'python-inotify'),
     SingleRule('tripleo-incubator', 'openstack-tripleo'),
-    SingleRule('python-pika-pool', 'python-pika_pool'),
+    SingleRule('pika-pool', 'python-pika_pool'),
     SingleRule('suds-jurko', 'python-suds'),
     SingleRule('wsgi_intercept', 'python-wsgi_intercept'),
     MultiRule(
