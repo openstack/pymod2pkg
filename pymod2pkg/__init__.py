@@ -87,7 +87,7 @@ RDO_PKG_MAP = [
     SingleRule('Babel', 'python-babel'),
     SingleRule('distribute', 'python-setuptools'),
     SingleRule('google-api-python-client', 'python-google-api-client'),
-    SingleRule('pyopenssl', 'pyOpenSSL'),
+    SingleRule('pyOpenSSL', 'pyOpenSSL'),
     SingleRule('IPy', 'python-IPy'),
     SingleRule('pycrypto', 'python-crypto'),
     SingleRule('pyzmq', 'python-zmq'),
