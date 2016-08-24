@@ -138,10 +138,10 @@ SUSE_PKG_MAP = [
         mods=['python-%sclient' % c for c in (
             'k8s', 'aodh', 'barbican', 'ceilometer', 'cinder', 'congress',
             'designate', 'fuel', 'heat', 'glance', 'gnocchi', 'ironic',
-            'keystone', 'magnum', 'manila', 'mistral', 'murano', 'monasca',
-            'neutron', 'nova', 'openstack', 'sahara', 'searchlight',
-            'senlin', 'smaug', 'solum', 'swift', 'tacker', 'tripleo', 'trove',
-            'watcher', 'zaqar')],
+            'ironic-inspector-', 'keystone', 'magnum', 'manila', 'mistral',
+            'murano', 'monasca', 'neutron', 'nova', 'openstack', 'sahara',
+            'searchlight', 'senlin', 'smaug', 'solum', 'swift', 'tacker',
+            'tripleo', 'trove', 'watcher', 'zaqar')],
         pkgfun=lambda x: x),
 ]
 
