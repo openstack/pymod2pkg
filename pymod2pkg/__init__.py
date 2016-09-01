@@ -146,6 +146,13 @@ SUSE_PKG_MAP = [
         pkgfun=lambda x: x),
 ]
 
+OPENSTACK_UPSTREAM_PKG_MAP = [
+    SingleRule('openstacksdk', 'python-openstacksdk'),
+    SingleRule('gnocchiclient', 'python-gnocchiclient'),
+    SingleRule('aodhclient', 'python-aodhclient'),
+    SingleRule('keystoneauth1', 'keystoneauth'),
+]
+
 
 def get_pkg_map(dist):
     if dist.lower().find('suse') != -1:
@@ -176,16 +183,34 @@ def module2package(mod, dist, pkg_map=None):
     return tr_func(mod)
 
 
+def module2upstream(mod):
+    """Return a corresponding OpenStack upstream name  for a python module.
+
+    mod  -- python module name
+    """
+    for rule in OPENSTACK_UPSTREAM_PKG_MAP:
+        pkg = rule(mod, None)
+        if pkg:
+            return pkg
+    return mod
+
+
 def main():
     """for resolving names from command line"""
     parser = argparse.ArgumentParser(description='Python module name to'
                                      'package name')
-    parser.add_argument('--dist', help='distribution style '
-                        '(default: %(default)s)',
-                        default=platform.linux_distribution()[0])
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('--dist', help='distribution style '
+                       '(default: %(default)s)',
+                       default=platform.linux_distribution()[0])
+    group.add_argument('--upstream', help='map to OpenStack project name',
+                       action='store_true')
     parser.add_argument('modulename', help='python module name')
     args = vars(parser.parse_args())
-    print(module2package(args['modulename'], args['dist']))
+    if args['upstream']:
+        print(module2upstream(args['modulename']))
+    else:
+        print(module2package(args['modulename'], args['dist']))
 
 
 # for debugging to call the file directly

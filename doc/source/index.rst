@@ -47,13 +47,17 @@ and a linux distribution name as returned by `platform.linux_distribution()[0]`:
    import pymod2pkg
    pkg = pymod2pkg.module2package('six', 'Fedora')
 
+An `upstream` map is also provided, to translate python module names to
+OpenStack project names.
+
 There's not much more, really, so RTFS.
 
 Fixing/extending the map
 ========================
 
-Currently, only package maps for RPM-based systems are provided, but it'd be
-nice to have all the distros covered and it's really easy to do.
+Currently, only package maps for RPM-based systems and upstream OpenStack are
+provided, but it'd be nice to have all the distros covered and it's really
+easy to do.
 
 See `*_PKG_MAP` and `get_pkg_map`, hack it to your liking and submit review by
 

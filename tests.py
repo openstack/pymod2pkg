@@ -62,6 +62,15 @@ class Pymod2PkgTests(unittest.TestCase):
         self.assertEqual(pymod2pkg.module2package('nova', 'fedora'),
                          'openstack-nova')
 
+    def test_default_translation_upstream(self):
+        self.assertEqual(pymod2pkg.module2upstream('oslo.db'), 'oslo.db')
+        self.assertEqual(pymod2pkg.module2upstream('python-glanceclient'),
+                         'python-glanceclient')
+        self.assertEqual(pymod2pkg.module2upstream('openstacksdk'),
+                         'python-openstacksdk')
+        self.assertNotEqual(pymod2pkg.module2upstream('keystoneauth1'),
+                            'keystoneauth1')
+
     def test_translation_horizon_plugins(self):
         self.assertEqual(pymod2pkg.module2package('sahara-dashboard',
                                                   'fedora'),
