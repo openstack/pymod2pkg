@@ -72,7 +72,7 @@ def default_suse_tr(mod):
 
 
 def openstack_prefix_tr(mod):
-    return 'openstack-' + mod
+    return 'openstack-' + mod.lower()
 
 
 def rdo_horizon_plugins_tr(mod):
@@ -117,7 +117,7 @@ RDO_PKG_MAP = [
               'ironic-python-agent', 'keystone', 'magnum', 'manila',
               'mistral', 'murano', 'neutron', 'neutron-fwaas', 'neutron-lbaas',
               'neutron-vpnaas', 'nova', 'octavia', 'rally', 'sahara', 'swift',
-              'tempest', 'trove', 'tuskar', 'vitrage', 'zaqar'],
+              'Tempest', 'trove', 'tuskar', 'vitrage', 'zaqar'],
         pkgfun=openstack_prefix_tr),
     # Horizon plugins (normalized to openstack-<project>-ui)
     RegexRule(pattern=r'\w+-(dashboard|ui)', pkgfun=rdo_horizon_plugins_tr)
@@ -131,7 +131,7 @@ SUSE_PKG_MAP = [
         mods=['ceilometer', 'cinder', 'designate', 'glance',
               'heat', 'ironic', 'keystone', 'manila',
               'neutron', 'nova', 'rally', 'sahara', 'swift',
-              'tempest', 'trove', 'tuskar', 'zaqar'],
+              'Tempest', 'trove', 'tuskar', 'zaqar'],
         pkgfun=openstack_prefix_tr),
     # OpenStack clients
     MultiRule(

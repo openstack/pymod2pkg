@@ -45,6 +45,8 @@ class Pymod2PkgTests(unittest.TestCase):
         self.assertEqual(pymod2pkg.module2package('python-neutronclient',
                                                   'suse'),
                          'python-neutronclient')
+        self.assertEqual(pymod2pkg.module2package('Tempest', 'suse'),
+                         'openstack-tempest')
 
     def test_default_translation_rdo(self):
         self.assertEqual(pymod2pkg.module2package('oslo.db', 'fedora'),
