@@ -138,11 +138,13 @@ SUSE_PKG_MAP = [
     MultiRule(
         mods=['python-%sclient' % c for c in (
             'k8s', 'barbican', 'ceilometer', 'cinder', 'congress',
-            'designate', 'fuel', 'heat', 'glance', 'ironic',
-            'ironic-inspector-', 'keystone', 'magnum', 'manila', 'mistral',
-            'monasca', 'murano', 'neutron', 'nova', 'openstack', 'sahara',
-            'searchlight', 'senlin', 'smaug', 'solum', 'swift', 'tacker',
-            'tripleo', 'trove', 'watcher', 'zaqar')],
+            'designate', 'distil', 'drac', 'fuel', 'freezer', 'heat',
+            'glance', 'ironic', 'ironic-inspector-', 'k8sclient',
+            'keystone', 'magnum', 'manila', 'mistral', 'monasca',
+            'murano', 'nimble', 'neutron', 'nova', 'oneview',
+            'openstack', 'sahara', 'scci', 'searchlight',
+            'senlin', 'smaug', 'solum', 'swift', 'tacker',
+            'tripleo', 'trove', 'vitrage', 'watcher', 'zaqar')],
         pkgfun=lambda x: x),
 ]
 
