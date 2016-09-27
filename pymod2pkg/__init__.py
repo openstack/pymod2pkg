@@ -137,7 +137,8 @@ SUSE_PKG_MAP = [
     # OpenStack clients
     MultiRule(
         mods=['python-%sclient' % c for c in (
-            'k8s', 'barbican', 'ceilometer', 'cinder', 'congress',
+            'k8s', 'barbican',
+            'ceilometer', 'cinder', 'cloudkittyclient', 'congress',
             'designate', 'distil', 'drac', 'fuel', 'freezer', 'heat',
             'glance', 'ironic', 'ironic-inspector-', 'k8sclient',
             'keystone', 'magnum', 'manila', 'mistral', 'monasca',
