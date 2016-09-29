@@ -138,7 +138,7 @@ SUSE_PKG_MAP = [
     MultiRule(
         mods=['python-%sclient' % c for c in (
             'k8s', 'barbican',
-            'ceilometer', 'cinder', 'cloudkittyclient', 'congress',
+            'ceilometer', 'cinder', 'cloudkitty', 'congress',
             'designate', 'distil', 'drac', 'fuel', 'freezer', 'heat',
             'glance', 'ironic', 'ironic-inspector-', 'k8sclient',
             'keystone', 'magnum', 'manila', 'mistral', 'monasca',
