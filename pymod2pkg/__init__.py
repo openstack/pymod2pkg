@@ -141,7 +141,7 @@ SUSE_PKG_MAP = [
             'ceilometer', 'cinder', 'cloudkitty', 'congress', 'cue',
             'designate', 'distil', 'drac', 'fuel', 'freezer', 'heat',
             'glance', 'ironic', 'ironic-inspector-',
-            'karbor', 'k8sclient', 'keystone',
+            'karbor', 'k8s', 'keystone',
             'magnum', 'manila', 'mistral', 'monasca',
             'murano', 'nimble', 'neutron', 'nova', 'oneview',
             'openstack', 'sahara', 'scci', 'searchlight',
