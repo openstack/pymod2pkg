@@ -155,6 +155,7 @@ OPENSTACK_UPSTREAM_PKG_MAP = [
     SingleRule('gnocchiclient', 'python-gnocchiclient'),
     SingleRule('aodhclient', 'python-aodhclient'),
     SingleRule('keystoneauth1', 'keystoneauth'),
+    SingleRule('microversion_parse', 'microversion-parse'),
 ]
 
 
