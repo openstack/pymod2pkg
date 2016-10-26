@@ -105,6 +105,7 @@ RDO_PKG_MAP = [
     SingleRule('suds-jurko', 'python-suds'),
     SingleRule('wsgi_intercept', 'python-wsgi_intercept'),
     SingleRule('mistral', 'openstack-mistral-all'),
+    SingleRule('Sphinx', 'python-sphinx'),
     MultiRule(
         mods=['PyYAML', 'm2crypto', 'numpy', 'pyflakes', 'pylint', 'pyparsing',
               'pytz', 'pysendfile', 'libvirt-python'],
