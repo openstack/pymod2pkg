@@ -127,6 +127,8 @@ RDO_PKG_MAP = [
 
 
 SUSE_PKG_MAP = [
+    # This demonstrates per-dist filter
+    SingleRule('python-ldap', 'python-ldap'),
     # OpenStack services
     MultiRule(
         # keep lists in alphabetic order
