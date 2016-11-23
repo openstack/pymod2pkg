@@ -80,6 +80,11 @@ def rdo_horizon_plugins_tr(mod):
     return 'openstack-' + mod
 
 
+def rdo_xstatic_tr(mod):
+    mod = mod.replace('_', '-').replace('.', '-')
+    return 'python-' + mod
+
+
 RDO_PKG_MAP = [
     # This demonstrates per-dist filter
     # SingleRule('sphinx', 'python-sphinx',
@@ -122,7 +127,9 @@ RDO_PKG_MAP = [
               'Tempest', 'trove', 'tuskar', 'vitrage', 'zaqar'],
         pkgfun=openstack_prefix_tr),
     # Horizon plugins (normalized to openstack-<project>-ui)
-    RegexRule(pattern=r'\w+-(dashboard|ui)', pkgfun=rdo_horizon_plugins_tr)
+    RegexRule(pattern=r'\w+-(dashboard|ui)', pkgfun=rdo_horizon_plugins_tr),
+    # XStatic projects (name is python-pypi_name, no lowercase conversion)
+    RegexRule(pattern=r'^XStatic.*', pkgfun=rdo_xstatic_tr)
 ]
 
 
