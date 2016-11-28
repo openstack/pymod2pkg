@@ -140,7 +140,7 @@ SUSE_PKG_MAP = [
     MultiRule(
         # keep lists in alphabetic order
         mods=['ceilometer', 'cinder', 'designate', 'glance',
-              'heat', 'ironic', 'keystone', 'manila',
+              'heat', 'ironic', 'keystone', 'manila', 'mistral',
               'neutron', 'nova', 'rally', 'sahara', 'swift',
               'Tempest', 'trove', 'tuskar', 'zaqar'],
         pkgfun=openstack_prefix_tr),
