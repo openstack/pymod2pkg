@@ -27,6 +27,8 @@ class Pymod2PkgTests(unittest.TestCase):
     def test_get_default_translation_func(self):
         self.assertEqual(pymod2pkg.get_default_tr_func('suse'),
                          pymod2pkg.default_suse_tr)
+        self.assertEqual(pymod2pkg.get_default_tr_func('ubuntu'),
+                         pymod2pkg.default_ubuntu_tr)
         self.assertEqual(pymod2pkg.get_default_tr_func('anything'),
                          pymod2pkg.default_rdo_tr)
 
@@ -53,6 +55,16 @@ class Pymod2PkgTests(unittest.TestCase):
                          'python-neutronclient')
         self.assertEqual(pymod2pkg.module2package('Tempest', 'suse'),
                          'openstack-tempest')
+
+    def test_translation_ubuntu(self):
+        self.assertEqual(pymod2pkg.module2package('nova', 'ubuntu'),
+                         'python-nova')
+        self.assertEqual(pymod2pkg.module2package('python-cinderclient',
+                                                  'ubuntu'),
+                         'python-cinderclient')
+        self.assertEqual(pymod2pkg.module2package('python-neutronclient',
+                                                  'ubuntu'),
+                         'python-neutronclient')
 
     def test_default_translation_rdo(self):
         self.assertEqual(pymod2pkg.module2package('oslo.db', 'fedora'),
