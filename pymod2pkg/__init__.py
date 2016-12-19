@@ -67,6 +67,10 @@ def default_rdo_tr(mod):
     return pkg
 
 
+def default_ubuntu_tr(mod):
+    return 'python-' + mod.lower()
+
+
 def default_suse_tr(mod):
     return 'python-' + mod
 
@@ -159,6 +163,31 @@ SUSE_PKG_MAP = [
         pkgfun=lambda x: x),
 ]
 
+UBUNTU_PKG_MAP = [
+    SingleRule('django_openstack_auth', 'python-openstack-auth'),
+    SingleRule('glance_store', 'python-glance-store'),
+    SingleRule('GitPython', 'python-git'),
+    SingleRule('PyMySQL', 'python-mysql'),
+    SingleRule('pyOpenSSL', 'python-openssl'),
+    SingleRule('PyYAML', 'python-yaml'),
+    SingleRule('sqlalchemy-migrate', 'python-migrate'),
+    SingleRule('suds-jurko', 'python-suds'),
+
+    # Openstack clients
+    MultiRule(
+        mods=['python-%sclient' % c for c in (
+            'barbican', 'ceilometer', 'cinder', 'cloudkitty', 'congress',
+            'designate', 'fuel', 'heat', 'glance', 'ironic',
+            'karbor',  'keystone',
+            'magnum', 'manila', 'mistral', 'monasca',
+            'murano', 'neutron', 'nova',
+            'openstack', 'sahara',
+            'senlin', 'swift',
+            'trove',  'zaqar')],
+        pkgfun=lambda x: x),
+
+]
+
 OPENSTACK_UPSTREAM_PKG_MAP = [
     SingleRule('openstacksdk', 'python-openstacksdk'),
     SingleRule('gnocchiclient', 'python-gnocchiclient'),
@@ -171,12 +200,16 @@ OPENSTACK_UPSTREAM_PKG_MAP = [
 def get_pkg_map(dist):
     if dist.lower().find('suse') != -1:
         return SUSE_PKG_MAP
+    if dist.lower().find('ubuntu') != -1:
+        return UBUNTU_PKG_MAP
     return RDO_PKG_MAP
 
 
 def get_default_tr_func(dist):
     if dist.lower().find('suse') != -1:
         return default_suse_tr
+    if dist.lower().find('ubuntu') != -1:
+        return default_ubuntu_tr
     return default_rdo_tr
 
 
