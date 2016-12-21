@@ -113,7 +113,6 @@ RDO_PKG_MAP = [
     SingleRule('pika-pool', 'python-pika_pool'),
     SingleRule('suds-jurko', 'python-suds'),
     SingleRule('wsgi_intercept', 'python-wsgi_intercept'),
-    SingleRule('mistral', 'openstack-mistral-all'),
     SingleRule('Sphinx', 'python-sphinx'),
     MultiRule(
         mods=['PyYAML', 'm2crypto', 'numpy', 'pyflakes', 'pylint', 'pyparsing',
@@ -126,7 +125,7 @@ RDO_PKG_MAP = [
               'designate', 'ec2-api', 'glance', 'heat', 'heat-templates',
               'ironic', 'ironic-discoverd', 'ironic-inspector',
               'ironic-python-agent', 'keystone', 'magnum', 'manila',
-              'murano', 'neutron', 'neutron-fwaas', 'neutron-lbaas',
+              'mistral', 'murano', 'neutron', 'neutron-fwaas', 'neutron-lbaas',
               'neutron-vpnaas', 'nova', 'octavia', 'rally', 'sahara', 'swift',
               'Tempest', 'trove', 'tuskar', 'vitrage', 'zaqar'],
         pkgfun=openstack_prefix_tr),
