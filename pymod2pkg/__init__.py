@@ -194,6 +194,7 @@ OPENSTACK_UPSTREAM_PKG_MAP = [
     SingleRule('aodhclient', 'python-aodhclient'),
     SingleRule('keystoneauth1', 'keystoneauth'),
     SingleRule('microversion_parse', 'microversion-parse'),
+    SingleRule('XStatic-smart-table', 'xstatic-angular-smart-table'),
 ]
 
 
