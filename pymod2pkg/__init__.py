@@ -117,7 +117,7 @@ RDO_PKG_MAP = [
     SingleRule('Sphinx', 'python-sphinx'),
     MultiRule(
         mods=['PyYAML', 'm2crypto', 'numpy', 'pyflakes', 'pylint', 'pyparsing',
-              'pytz', 'pysendfile', 'libvirt-python'],
+              'pystache', 'pytz', 'pysendfile', 'libvirt-python'],
         pkgfun=lambda x: x),
     # OpenStack services
     MultiRule(
