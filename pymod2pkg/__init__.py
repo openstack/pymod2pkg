@@ -108,6 +108,7 @@ RDO_PKG_MAP = [
     SingleRule('qpid-python', 'python-qpid'),
     SingleRule('posix_ipc', 'python-posix_ipc'),
     SingleRule('oslosphinx', 'python-oslo-sphinx'),
+    SingleRule('ovs', 'python-openvswitch'),
     SingleRule('pyinotify', 'python-inotify'),
     SingleRule('tripleo-incubator', 'openstack-tripleo'),
     SingleRule('pika-pool', 'python-pika_pool'),
