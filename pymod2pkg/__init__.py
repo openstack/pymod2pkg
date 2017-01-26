@@ -94,6 +94,7 @@ RDO_PKG_MAP = [
     # SingleRule('sphinx', 'python-sphinx',
     #           distmap={'epel-6': 'python-sphinx10'}),
     SingleRule('Babel', 'python-babel'),
+    SingleRule('bandit', 'bandit'),
     SingleRule('distribute', 'python-setuptools'),
     SingleRule('google-api-python-client', 'python-google-api-client'),
     SingleRule('pyOpenSSL', 'pyOpenSSL'),
