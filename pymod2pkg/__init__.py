@@ -158,7 +158,7 @@ SUSE_PKG_MAP = [
         mods=['python-%sclient' % c for c in (
             'barbican', 'ceilometer', 'cinder', 'cloudkitty', 'congress',
             'cue', 'designate', 'distil', 'drac', 'fuel', 'freezer', 'heat',
-            'glance', 'ironic', 'ironic-inspector-',
+            'glance', 'glare', 'ironic', 'ironic-inspector-',
             'karbor', 'k8s', 'keystone',
             'magnum', 'manila', 'mistral', 'monasca',
             'murano', 'nimble', 'neutron', 'nova', 'oneview',
