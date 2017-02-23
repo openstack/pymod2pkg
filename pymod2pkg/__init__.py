@@ -112,7 +112,7 @@ RDO_PKG_MAP = [
     SingleRule('oslosphinx', 'python-oslo-sphinx'),
     SingleRule('ovs', 'python-openvswitch'),
     SingleRule('pyinotify', 'python-inotify'),
-    SingleRule('pyscss', 'python-scss'),
+    SingleRule('pyScss', 'python-scss'),
     SingleRule('tripleo-incubator', 'openstack-tripleo'),
     SingleRule('pika-pool', 'python-pika_pool'),
     SingleRule('suds-jurko', 'python-suds'),
