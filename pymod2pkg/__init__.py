@@ -96,6 +96,7 @@ RDO_PKG_MAP = [
     SingleRule('Babel', 'python-babel'),
     SingleRule('bandit', 'bandit'),
     SingleRule('distribute', 'python-setuptools'),
+    SingleRule('dnspython', 'python-dns'),
     SingleRule('google-api-python-client', 'python-google-api-client'),
     SingleRule('pyOpenSSL', 'pyOpenSSL'),
     SingleRule('IPy', 'python-IPy'),
@@ -119,6 +120,7 @@ RDO_PKG_MAP = [
     SingleRule('supervisor', 'supervisor'),
     SingleRule('wsgi_intercept', 'python-wsgi_intercept'),
     SingleRule('Sphinx', 'python-sphinx'),
+    SingleRule('xattr', 'pyxattr'),
     SingleRule('XStatic-term.js', 'python-XStatic-termjs'),
     MultiRule(
         mods=['PyYAML', 'm2crypto', 'numpy', 'pyflakes', 'pylint', 'pyparsing',
