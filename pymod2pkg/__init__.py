@@ -173,6 +173,17 @@ SUSE_PKG_MAP = [
             'senlin', 'smaug', 'solum', 'swift', 'tacker',
             'tripleo', 'trove', 'vitrage', 'watcher', 'zaqar')],
         pkgfun=lambda x: x),
+    # ui components
+    SingleRule('designate-dashboard', 'openstack-horizon-plugin-designate-ui'),
+    SingleRule('group-based-policy-ui', 'openstack-horizon-plugin-gbp-ui'),
+    SingleRule('ironic-ui', 'openstack-horizon-plugin-ironic-ui'),
+    SingleRule('magnum-ui', 'openstack-horizon-plugin-magnum-ui'),
+    SingleRule('manila-ui', 'openstack-horizon-plugin-manila-ui'),
+    SingleRule('monasca-ui', 'openstack-horizon-plugin-monasca-ui'),
+    SingleRule('neutron-lbaas-dashboard',
+               'openstack-horizon-plugin-neutron-lbaas-ui'),
+    SingleRule('sahara-dashboard', 'openstack-horizon-plugin-sahara-ui'),
+    SingleRule('trove-dashboard', 'openstack-horizon-plugin-trove-ui'),
 ]
 
 UBUNTU_PKG_MAP = [
