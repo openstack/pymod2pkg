@@ -174,6 +174,7 @@ SUSE_PKG_MAP = [
             'tripleo', 'trove', 'vitrage', 'watcher', 'zaqar')],
         pkgfun=lambda x: x),
     # ui components
+    SingleRule('horizon', 'openstack-dashboard'),
     SingleRule('designate-dashboard', 'openstack-horizon-plugin-designate-ui'),
     SingleRule('group-based-policy-ui', 'openstack-horizon-plugin-gbp-ui'),
     SingleRule('ironic-ui', 'openstack-horizon-plugin-ironic-ui'),
