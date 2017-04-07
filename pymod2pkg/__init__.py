@@ -122,6 +122,7 @@ RDO_PKG_MAP = [
     SingleRule('Sphinx', 'python-sphinx'),
     SingleRule('xattr', 'pyxattr'),
     SingleRule('XStatic-term.js', 'python-XStatic-termjs'),
+    SingleRule('horizon', 'openstack-dashboard'),
     MultiRule(
         mods=['PyYAML', 'm2crypto', 'numpy', 'pyflakes', 'pylint', 'pyparsing',
               'pystache', 'pytz', 'pysendfile', 'libvirt-python'],
