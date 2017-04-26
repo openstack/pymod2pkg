@@ -151,6 +151,9 @@ RDO_PKG_MAP = [
 SUSE_PKG_MAP = [
     # This demonstrates per-dist filter
     SingleRule('python-ldap', 'python-ldap'),
+    MultiRule(
+        mods=['libvirt-python'],
+        pkgfun=lambda x: x),
     # OpenStack services
     MultiRule(
         # keep lists in alphabetic order
@@ -193,6 +196,7 @@ UBUNTU_PKG_MAP = [
     SingleRule('django_openstack_auth', 'python-openstack-auth'),
     SingleRule('glance_store', 'python-glance-store'),
     SingleRule('GitPython', 'python-git'),
+    SingleRule('libvirt-python', 'python-libvirt'),
     SingleRule('PyMySQL', 'python-mysql'),
     SingleRule('pyOpenSSL', 'python-openssl'),
     SingleRule('PyYAML', 'python-yaml'),
