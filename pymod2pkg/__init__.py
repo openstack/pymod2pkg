@@ -187,6 +187,7 @@ SUSE_PKG_MAP = [
     SingleRule('magnum-ui', 'openstack-horizon-plugin-magnum-ui'),
     SingleRule('manila-ui', 'openstack-horizon-plugin-manila-ui'),
     SingleRule('monasca-ui', 'openstack-horizon-plugin-monasca-ui'),
+    SingleRule('murano-dashboard', 'openstack-horizon-plugin-murano-ui'),
     SingleRule('neutron-lbaas-dashboard',
                'openstack-horizon-plugin-neutron-lbaas-ui'),
     SingleRule('sahara-dashboard', 'openstack-horizon-plugin-sahara-ui'),
