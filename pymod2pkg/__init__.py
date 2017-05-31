@@ -124,6 +124,7 @@ RDO_PKG_MAP = [
     SingleRule('xattr', 'pyxattr'),
     SingleRule('XStatic-term.js', 'python-XStatic-termjs'),
     SingleRule('horizon', 'openstack-dashboard'),
+    SingleRule('networking-vsphere', 'openstack-neutron-vsphere'),
     MultiRule(
         mods=['PyYAML', 'm2crypto', 'numpy', 'pyflakes', 'pylint', 'pyparsing',
               'pystache', 'pytz', 'pysendfile', 'libvirt-python'],
@@ -192,6 +193,7 @@ SUSE_PKG_MAP = [
                'openstack-horizon-plugin-neutron-lbaas-ui'),
     SingleRule('sahara-dashboard', 'openstack-horizon-plugin-sahara-ui'),
     SingleRule('trove-dashboard', 'openstack-horizon-plugin-trove-ui'),
+    SingleRule('networking-vsphere', 'openstack-neutron-vsphere'),
 ]
 
 UBUNTU_PKG_MAP = [
