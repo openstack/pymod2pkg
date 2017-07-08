@@ -151,10 +151,11 @@ RDO_PKG_MAP = [
 
 
 SUSE_PKG_MAP = [
-    # This demonstrates per-dist filter
-    SingleRule('python-ldap', 'python-ldap'),
+    # not following SUSE naming policy
     MultiRule(
-        mods=['libvirt-python'],
+        mods=['ansible',
+              'libvirt-python'
+              'python-ldap'],
         pkgfun=lambda x: x),
     # OpenStack services
     MultiRule(
