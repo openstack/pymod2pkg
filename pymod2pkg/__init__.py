@@ -154,7 +154,7 @@ SUSE_PKG_MAP = [
     # not following SUSE naming policy
     MultiRule(
         mods=['ansible',
-              'libvirt-python'
+              'libvirt-python',
               'python-ldap'],
         pkgfun=lambda x: x),
     # OpenStack services
