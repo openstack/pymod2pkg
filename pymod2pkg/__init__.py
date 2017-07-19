@@ -135,7 +135,7 @@ RDO_PKG_MAP = [
         mods=['aodh', 'barbican', 'ceilometer', 'cinder', 'cloudkitty',
               'designate', 'ec2-api', 'glance', 'heat', 'heat-templates',
               'ironic', 'ironic-discoverd', 'ironic-inspector',
-              'ironic-python-agent', 'keystone', 'magnum', 'manila',
+              'ironic-python-agent', 'karbor', 'keystone', 'magnum', 'manila',
               'masakari', 'masakari-monitors', 'mistral', 'monasca-agent',
               'monasca-api', 'monasca-log-api', 'monasca-notification',
               'monasca-persister', 'murano', 'neutron', 'neutron-fwaas',
@@ -161,7 +161,7 @@ SUSE_PKG_MAP = [
     MultiRule(
         # keep lists in alphabetic order
         mods=['ceilometer', 'cinder', 'designate', 'glance',
-              'heat', 'ironic', 'keystone', 'manila', 'masakari',
+              'heat', 'ironic', 'karbor', 'keystone', 'manila', 'masakari',
               'masakari-monitors', 'mistral',
               'monasca-agent', 'monasca-api', 'monasca-log-api',
               'monasca-notification', 'monasca-persister',
