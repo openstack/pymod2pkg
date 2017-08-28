@@ -34,25 +34,25 @@ class Pymod2PkgTests(unittest.TestCase):
 
     def test_default_translation_suse(self):
         self.assertEqual(pymod2pkg.module2package('oslo.db', 'suse'),
-                         'python-oslo.db')
+                         'python2-oslo.db')
         self.assertEqual(pymod2pkg.module2package('Babel', 'suse'),
-                         'python-Babel')
+                         'python2-Babel')
 
     def test_translation_suse(self):
         self.assertEqual(pymod2pkg.module2package('nova', 'suse'),
                          'openstack-nova')
         self.assertEqual(pymod2pkg.module2package('aodhclient',
                                                   'suse'),
-                         'python-aodhclient')
+                         'python2-aodhclient')
         self.assertEqual(pymod2pkg.module2package('gnocciclient',
                                                   'suse'),
-                         'python-gnocciclient')
+                         'python2-gnocciclient')
         self.assertEqual(pymod2pkg.module2package('python-cinderclient',
                                                   'suse'),
-                         'python-cinderclient')
+                         'python2-cinderclient')
         self.assertEqual(pymod2pkg.module2package('python-neutronclient',
                                                   'suse'),
-                         'python-neutronclient')
+                         'python2-neutronclient')
         self.assertEqual(pymod2pkg.module2package('Tempest', 'suse'),
                          'openstack-tempest')
 
@@ -99,17 +99,71 @@ class Pymod2PkgTests(unittest.TestCase):
         self.assertEqual(pymod2pkg.module2package('zomg-tempest-plugin',
                          'fedora'), 'python-zomg-tests-tempest')
 
+    def test_default_translation_py2py3_suse(self):
+        self.assertEqual(pymod2pkg.module2package('oslo.db', 'suse',
+                         py_vers=['py2', 'py3']),
+                         ['python2-oslo.db', 'python3-oslo.db'])
+        self.assertEqual(pymod2pkg.module2package('Babel', 'suse',
+                         py_vers=['py2', 'py3']),
+                         ['python2-Babel', 'python3-Babel'])
+
+    def test_translation_py2py3_suse(self):
+        self.assertEqual(pymod2pkg.module2package('nova', 'suse',
+                         py_vers=['py2', 'py3']),
+                         ['openstack-nova', ''])
+        self.assertEqual(pymod2pkg.module2package('aodhclient',
+                         'suse', py_vers=['py2', 'py3']),
+                         ['python2-aodhclient', 'python3-aodhclient'])
+        self.assertEqual(pymod2pkg.module2package('gnocciclient',
+                         'suse', py_vers=['py2', 'py3']),
+                         ['python2-gnocciclient', 'python3-gnocciclient'])
+        self.assertEqual(pymod2pkg.module2package(
+                         'python-cinderclient', 'suse',
+                         py_vers=['py2', 'py3']),
+                         ['python2-cinderclient', 'python3-cinderclient'])
+        self.assertEqual(pymod2pkg.module2package(
+                         'python-neutronclient', 'suse',
+                         py_vers=['py2', 'py3']),
+                         ['python2-neutronclient', 'python3-neutronclient'])
+        self.assertEqual(pymod2pkg.module2package('Tempest', 'suse',
+                         py_vers=['py2', 'py3']),
+                         ['openstack-tempest', ''])
+
+    def test_translation_py2py3_ubuntu(self):
+        self.assertEqual(pymod2pkg.module2package('nova', 'ubuntu',
+                         py_vers=['py2', 'py3']),
+                         ['python-nova', 'python3-nova'])
+        self.assertEqual(pymod2pkg.module2package('python-cinderclient',
+                         'ubuntu', py_vers=['py2', 'py3']),
+                         ['python-cinderclient', 'python3-cinderclient'])
+        self.assertEqual(pymod2pkg.module2package(
+                         'python-neutronclient', 'ubuntu',
+                         py_vers=['py2', 'py3']),
+                         ['python-neutronclient', 'python3-neutronclient'])
+
+    def test_default_translation_py2py3_rdo(self):
+        self.assertEqual(pymod2pkg.module2package('oslo.db', 'fedora',
+                         py_vers=['py2', 'py3']),
+                         ['python-oslo-db', 'python3-oslo-db'])
+        self.assertEqual(pymod2pkg.module2package('Babel', 'fedora',
+                         py_vers=['py2', 'py3']),
+                         ['python-babel', 'python3-babel'])
+        self.assertEqual(pymod2pkg.module2package('nova', 'fedora',
+                         py_vers=['py2', 'py3']),
+                         ['openstack-nova', ''])
+
 
 class RegexRuleTests(unittest.TestCase):
     def test_regex_rule(self):
 
         def dummy_tr(mod):
             mod = mod.replace('dashboard', 'ui')
-            return "openstack-{}".format(mod)
+            return "openstack-{}".format(mod), ''
 
         rule = pymod2pkg.RegexRule(r'\w+-(dashboard|ui)', dummy_tr)
-        self.assertEqual(rule('dummy-dashboard', 'rdo'), 'openstack-dummy-ui')
-        self.assertEqual(rule('dummy-ui', 'rdo'), 'openstack-dummy-ui')
+        self.assertEqual(rule('dummy-dashboard', 'rdo'),
+                         ('openstack-dummy-ui', ''))
+        self.assertEqual(rule('dummy-ui', 'rdo'), ('openstack-dummy-ui', ''))
 
 
 if __name__ == '__main__':
