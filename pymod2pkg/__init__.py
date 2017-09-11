@@ -155,6 +155,7 @@ RDO_PKG_MAP = [
     SingleRule('networking-vsphere', 'openstack-neutron-vsphere'),
     SingleRule('m2crypto', 'm2crypto'),
     SingleRule('libvirt-python', 'libvirt-python', 'libvirt-python3'),
+    SingleRule('tempest-horizon', 'python-horizon-tests-tempest'),
     MultiRule(
         mods=['PyYAML', 'numpy', 'pyflakes', 'pylint', 'pyparsing',
               'pystache', 'pytz', 'pysendfile'],
