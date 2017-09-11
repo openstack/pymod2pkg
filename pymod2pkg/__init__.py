@@ -89,6 +89,11 @@ def rdo_xstatic_tr(mod):
     return 'python-' + mod
 
 
+def rdo_tempest_plugins_tr(mod):
+    mod = mod.replace('tempest-plugin', 'tests-tempest')
+    return 'python-' + mod
+
+
 RDO_PKG_MAP = [
     # This demonstrates per-dist filter
     # SingleRule('sphinx', 'python-sphinx',
@@ -147,7 +152,9 @@ RDO_PKG_MAP = [
     # Horizon plugins (normalized to openstack-<project>-ui)
     RegexRule(pattern=r'\w+-(dashboard|ui)', pkgfun=rdo_horizon_plugins_tr),
     # XStatic projects (name is python-pypi_name, no lowercase conversion)
-    RegexRule(pattern=r'^XStatic.*', pkgfun=rdo_xstatic_tr)
+    RegexRule(pattern=r'^XStatic.*', pkgfun=rdo_xstatic_tr),
+    # Tempest plugins (normalized to python-<project>-tests-tempest)
+    RegexRule(pattern=r'\w+-tempest-plugin', pkgfun=rdo_tempest_plugins_tr)
 ]
 
 

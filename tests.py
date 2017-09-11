@@ -92,6 +92,13 @@ class Pymod2PkgTests(unittest.TestCase):
         self.assertEqual(pymod2pkg.module2package('zomg-dashboard', 'fedora'),
                          'openstack-zomg-ui')
 
+    def test_translation_tempest_plugins(self):
+        self.assertEqual(pymod2pkg.module2package('keystone-tempest-plugin',
+                                                  'fedora'),
+                         'python-keystone-tests-tempest')
+        self.assertEqual(pymod2pkg.module2package('zomg-tempest-plugin',
+                         'fedora'), 'python-zomg-tests-tempest')
+
 
 class RegexRuleTests(unittest.TestCase):
     def test_regex_rule(self):
