@@ -128,6 +128,9 @@ class Pymod2PkgTests(unittest.TestCase):
         self.assertEqual(pymod2pkg.module2package('Tempest', 'suse',
                          py_vers=['py2', 'py3']),
                          ['openstack-tempest', ''])
+        self.assertEqual(pymod2pkg.module2package('devel', 'suse',
+                         py_vers=['py2', 'py3']),
+                         ['python-devel', 'python3-devel'])
 
     def test_translation_py2py3_ubuntu(self):
         self.assertEqual(pymod2pkg.module2package('nova', 'ubuntu',

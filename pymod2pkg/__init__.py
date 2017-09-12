@@ -214,6 +214,7 @@ SUSE_PKG_MAP = [
             'senlin', 'smaug', 'solum', 'swift', 'tacker',
             'tripleo', 'trove', 'vitrage', 'watcher', 'zaqar')],
         pkgfun=subst_python2_python3),
+    SingleRule('devel', 'python-devel', 'python3-devel'),
     # ui components
     SingleRule('horizon', 'openstack-dashboard'),
     SingleRule('designate-dashboard', 'openstack-horizon-plugin-designate-ui'),
