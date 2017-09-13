@@ -22,9 +22,18 @@ class TranslationRule(object):
 
 
 class SingleRule(TranslationRule):
-    def __init__(self, mod, pkg, py3pkg=None, distmap=None):
+    """
+    Translate a given module name
+
+    mod: the python module name (usually the pypi name)
+    pkg: the unversioned translated package name
+    py2pkg: the python2 versioned translated package name
+    py3pkg: the python3 versioned translated package name
+    """
+    def __init__(self, mod, pkg, py2pkg=None, py3pkg=None, distmap=None):
         self.mod = mod
         self.pkg = pkg
+        self.py2pkg = py2pkg if py2pkg else pkg
         self.py3pkg = py3pkg if py3pkg else pkg
         self.distmap = distmap
 
@@ -35,7 +44,7 @@ class SingleRule(TranslationRule):
             for distrex in self.distmap:
                 if re.match(distrex, dist):
                     return self.distmap[distrex]
-        return (self.pkg, self.py3pkg)
+        return (self.pkg, self.py2pkg, self.py3pkg)
 
 
 class MultiRule(TranslationRule):
@@ -45,8 +54,8 @@ class MultiRule(TranslationRule):
 
     def __call__(self, mod, dist):
         if mod in self.mods:
-            pkg, pkg3 = self.pkgfun(mod)
-            return (pkg, pkg3)
+            pkg, py2pkg, py3pkg = self.pkgfun(mod)
+            return (pkg, py2pkg, py3pkg)
         return None
 
 
@@ -57,109 +66,137 @@ class RegexRule(TranslationRule):
 
     def __call__(self, mod, dist):
         if re.match(self.pattern, mod):
-            pkg, pkg3 = self.pkgfun(mod)
-            return (pkg, pkg3)
+            pkg, py2pkg, py3pkg = self.pkgfun(mod)
+            return (pkg, py2pkg, py3pkg)
         return None
 
 
 def default_rdo_tr(mod):
+    """
+    Default translation function for Fedora/RDO based systems
+    """
     pkg = mod.rsplit('-python')[0]
     pkg = pkg.replace('_', '-').replace('.', '-').lower()
     if not pkg.startswith('python-'):
         pkg = 'python-' + pkg
-    pkg3 = re.sub('python', 'python3', pkg)
-    return (pkg, pkg3)
+    py2pkg = re.sub('python', 'python2', pkg)
+    py3pkg = re.sub('python', 'python3', pkg)
+    return (pkg, py2pkg, py3pkg)
 
 
 def default_ubuntu_tr(mod):
-    return ('python-' + mod.lower(), 'python3-' + mod.lower())
+    """
+    Default translation function for Ubuntu based systems
+    """
+    pkg = 'python-%s' % mod.lower()
+    py2pkg = pkg
+    py3pkg = 'python3-%s' % mod.lower()
+    return (pkg, py2pkg, py3pkg)
 
 
 def default_suse_tr(mod):
-    return ('python2-' + mod, 'python3-' + mod)
+    """
+    Default translation function for openSUSE, SLES, and other
+    SUSE based systems
+
+    Returns a tuple of 3 elements - the unversioned name, the python2 versioned
+    name and the python3 versioned name.
+    """
+    pkg = 'python-%s' % mod
+    py2pkg = 'python2-%s' % mod
+    py3pkg = 'python3-%s' % mod
+    return (pkg, py2pkg, py3pkg)
 
 
 def openstack_prefix_tr(mod):
-    return ('openstack-' + mod.lower(), '')
+    pkg = 'openstack-' + mod.lower()
+    return (pkg, '', '')
 
 
 def rdo_horizon_plugins_tr(mod):
     mod = mod.replace('dashboard', 'ui')
-    return ('openstack-' + mod, '')
+    pkg = 'openstack-' + mod
+    return (pkg, '', '')
 
 
 def rdo_xstatic_tr(mod):
     mod = mod.replace('_', '-').replace('.', '-')
-    return ('python-' + mod, 'python3-' + mod)
-
-
-def same_name_python3_prefix(mod):
-    return (mod, 'python3-' + mod)
+    pkg = 'python-' + mod
+    py3pkg = 'python3-' + mod
+    return (pkg, pkg, py3pkg)
 
 
 def same_name_python_subst_python3(mod):
-    pkg3 = re.sub('python', 'python3', mod)
-    return (mod, pkg3)
+    py3pkg = re.sub('python', 'python3', mod)
+    return (mod, mod, py3pkg)
 
 
 def subst_python2_python3(mod):
-    pkg2 = re.sub('python', 'python2', mod)
-    pkg3 = re.sub('python', 'python3', mod)
-    return (pkg2, pkg3)
+    pkg = mod
+    py2pkg = re.sub('python', 'python2', mod)
+    py3pkg = re.sub('python', 'python3', mod)
+    return (pkg, py2pkg, py3pkg)
 
 
 def rdo_tempest_plugins_tr(mod):
     mod = mod.replace('tempest-plugin', 'tests-tempest')
-    return ('python-' + mod, 'python3-' + mod)
+    pkg = 'python-' + mod
+    py2pkg = pkg
+    py3pkg = 'python3-' + mod
+    return (pkg, py2pkg, py3pkg)
 
 
 RDO_PKG_MAP = [
     # This demonstrates per-dist filter
     # SingleRule('sphinx', 'python-sphinx',
     #           distmap={'epel-6': 'python-sphinx10'}),
-    SingleRule('Babel', 'python-babel', 'python3-babel'),
+    SingleRule('Babel', 'python-babel', py3pkg='python3-babel'),
     SingleRule('bandit', 'bandit'),
-    SingleRule('distribute', 'python-setuptools', 'python3-setuptools'),
-    SingleRule('dnspython', 'python-dns', 'python3-dns'),
+    SingleRule('distribute', 'python-setuptools', py3pkg='python3-setuptools'),
+    SingleRule('dnspython', 'python-dns', py3pkg='python3-dns'),
     SingleRule('google-api-python-client', 'python-google-api-client',
-               'python3-google-api-client'),
-    SingleRule('GitPython', 'GitPython', 'python3-GitPython'),
-    SingleRule('pyOpenSSL', 'pyOpenSSL', 'python3-pyOpenSSL'),
-    SingleRule('IPy', 'python-IPy', 'python-IPy-python3'),
-    SingleRule('pycrypto', 'python-crypto', 'python3-crypto'),
-    SingleRule('pyzmq', 'python-zmq', 'python3-zmq'),
-    SingleRule('mysql-python', 'MySQL-python', 'python3-mysql'),
-    SingleRule('PyMySQL', 'python-PyMySQL', 'python3-PyMySQL'),
-    SingleRule('PyJWT', 'python-jwt', 'python3-jwt'),
-    SingleRule('MySQL-python', 'MySQL-python', 'python3-mysql'),
-    SingleRule('PasteDeploy', 'python-paste-deploy', 'python3-paste-deploy'),
-    SingleRule('sqlalchemy-migrate', 'python-migrate', 'python3-migrate'),
+               py3pkg='python3-google-api-client'),
+    SingleRule('GitPython', 'GitPython', py3pkg='python3-GitPython'),
+    SingleRule('pyOpenSSL', 'pyOpenSSL', py3pkg='python3-pyOpenSSL'),
+    SingleRule('IPy', 'python-IPy', py3pkg='python-IPy-python3'),
+    SingleRule('pycrypto', 'python-crypto', py3pkg='python3-crypto'),
+    SingleRule('pyzmq', 'python-zmq', py3pkg='python3-zmq'),
+    SingleRule('mysql-python', 'MySQL-python', py3pkg='python3-mysql'),
+    SingleRule('PyMySQL', 'python-PyMySQL', py3pkg='python3-PyMySQL'),
+    SingleRule('PyJWT', 'python-jwt', py3pkg='python3-jwt'),
+    SingleRule('MySQL-python', 'MySQL-python', py3pkg='python3-mysql'),
+    SingleRule('PasteDeploy', 'python-paste-deploy',
+               py3pkg='python3-paste-deploy'),
+    SingleRule('sqlalchemy-migrate', 'python-migrate',
+               py3pkg='python3-migrate'),
     SingleRule('qpid-python', 'python-qpid'),
-    SingleRule('nosexcover', 'python-nose-xcover', 'python3-nose-xcover.'),
-    SingleRule('posix_ipc', 'python-posix_ipc', 'python3-posix_ipc'),
-    SingleRule('oslosphinx', 'python-oslo-sphinx', 'python3-oslo-sphinx'),
-    SingleRule('ovs', 'python-openvswitch', 'python3-openvswitch'),
-    SingleRule('pyinotify', 'python-inotify', 'python3-inotify'),
-    SingleRule('pyScss', 'python-scss', 'python3-scss'),
+    SingleRule('nosexcover', 'python-nose-xcover',
+               py3pkg='python3-nose-xcover.'),
+    SingleRule('posix_ipc', 'python-posix_ipc', py3pkg='python3-posix_ipc'),
+    SingleRule('oslosphinx', 'python-oslo-sphinx',
+               py3pkg='python3-oslo-sphinx'),
+    SingleRule('ovs', 'python-openvswitch', py3pkg='python3-openvswitch'),
+    SingleRule('pyinotify', 'python-inotify', py3pkg='python3-inotify'),
+    SingleRule('pyScss', 'python-scss', py3pkg='python3-scss'),
     SingleRule('tripleo-incubator', 'openstack-tripleo'),
-    SingleRule('pika-pool', 'python-pika_pool', 'python3-pika_pool'),
-    SingleRule('suds-jurko', 'python-suds', 'python3-suds'),
-    SingleRule('supervisor', 'supervisor', 'python3-supervisor'),
+    SingleRule('pika-pool', 'python-pika_pool', py3pkg='python3-pika_pool'),
+    SingleRule('suds-jurko', 'python-suds', py3pkg='python3-suds'),
+    SingleRule('supervisor', 'supervisor', py3pkg='python3-supervisor'),
     SingleRule('wsgi_intercept', 'python-wsgi_intercept',
-               'python3-wsgi_intercept'),
-    SingleRule('Sphinx', 'python-sphinx', 'python3-sphinx'),
-    SingleRule('xattr', 'pyxattr', 'python3-pyxattr'),
+               py3pkg='python3-wsgi_intercept'),
+    SingleRule('Sphinx', 'python-sphinx', py3pkg='python3-sphinx'),
+    SingleRule('xattr', 'pyxattr', py3pkg='python3-pyxattr'),
     SingleRule('XStatic-term.js', 'python-XStatic-termjs',
-               'python3-XStatic-termjs'),
+               py3pkg='python3-XStatic-termjs'),
     SingleRule('horizon', 'openstack-dashboard'),
     SingleRule('networking-vsphere', 'openstack-neutron-vsphere'),
     SingleRule('m2crypto', 'm2crypto'),
-    SingleRule('libvirt-python', 'libvirt-python', 'libvirt-python3'),
+    SingleRule('libvirt-python', 'libvirt-python', py3pkg='libvirt-python3'),
     SingleRule('tempest-horizon', 'python-horizon-tests-tempest'),
     MultiRule(
         mods=['PyYAML', 'numpy', 'pyflakes', 'pylint', 'pyparsing',
               'pystache', 'pytz', 'pysendfile'],
-        pkgfun=same_name_python3_prefix),
+        pkgfun=lambda mod: ((mod, mod, 'python3-' + mod))),
     # OpenStack services
     MultiRule(
         # keep lists in alphabetic order
@@ -185,11 +222,8 @@ RDO_PKG_MAP = [
 
 SUSE_PKG_MAP = [
     # not following SUSE naming policy
-    MultiRule(
-        mods=['ansible',
-              'libvirt-python',
-              'python-ldap'],
-        pkgfun=same_name_python3_prefix),
+    SingleRule('ansible', 'ansible'),
+    SingleRule('python-ldap', 'python-ldap'),
     # OpenStack services
     MultiRule(
         # keep lists in alphabetic order
@@ -214,7 +248,7 @@ SUSE_PKG_MAP = [
             'senlin', 'smaug', 'solum', 'swift', 'tacker',
             'tripleo', 'trove', 'vitrage', 'watcher', 'zaqar')],
         pkgfun=subst_python2_python3),
-    SingleRule('devel', 'python-devel', 'python3-devel'),
+    SingleRule('devel', 'python-devel', py3pkg='python3-devel'),
     # ui components
     SingleRule('horizon', 'openstack-dashboard'),
     SingleRule('designate-dashboard', 'openstack-horizon-plugin-designate-ui'),
@@ -287,12 +321,17 @@ def get_default_tr_func(dist):
     return default_rdo_tr
 
 
-def module2package(mod, dist, pkg_map=None, py_vers=('py2',)):
+def module2package(mod, dist, pkg_map=None, py_vers=('py',)):
     """Return a corresponding package name for a python module.
 
-    mod  -- python module name
-    dist -- a linux distribution as returned by
-            `platform.linux_distribution()[0]`
+    mod: python module name
+    dist: a linux distribution as returned by
+          `platform.linux_distribution()[0]`
+    pkg_map: a custom package mapping. None means autodetected based on the
+             given dist parameter
+    py_vers: a list of python versions the function should return. Default is
+             'py' which is the unversioned translation. Possible values are
+             'py', 'py2' and 'py3'
     """
     if not pkg_map:
         pkg_map = get_pkg_map(dist)
@@ -304,19 +343,21 @@ def module2package(mod, dist, pkg_map=None, py_vers=('py2',)):
         tr_func = get_default_tr_func(dist)
         pkglist = tr_func(mod)
 
-    if len(py_vers) == 1:
-        # A single item requested. Not returning a list to keep
-        # backwards compatibility
-        if 'py2' in py_vers:
-            return pkglist[0]
-        elif 'py3' in py_vers:
-            return pkglist[1]
-    else:
-        output = []
-        if 'py2' in py_vers:
+    output = []
+    for v in py_vers:
+        if v == 'py':
             output.append(pkglist[0])
-        if 'py3' in py_vers:
+        elif v == 'py2':
             output.append(pkglist[1])
+        elif v == 'py3':
+            output.append(pkglist[2])
+        else:
+            raise Exception('Invalid version "%s"' % (v))
+
+    if len(output) == 1:
+        # just return a single value (backwards compatible)
+        return output[0]
+    else:
         return output
 
 
@@ -342,12 +383,14 @@ def main():
                        default=platform.linux_distribution()[0])
     group.add_argument('--upstream', help='map to OpenStack project name',
                        action='store_true')
-    parser.add_argument('--pyver', help='Python versions to return',
-                        action='append', choices=['py2', 'py3'], default=[])
+    parser.add_argument('--pyver', help='Python versions to return. "py" is '
+                        'the unversioned name',
+                        action='append', choices=['py', 'py2', 'py3'],
+                        default=[])
     parser.add_argument('modulename', help='python module name')
     args = vars(parser.parse_args())
 
-    pyversions = args['pyver'] if args['pyver'] else ['py2']
+    pyversions = args['pyver'] if args['pyver'] else ['py']
 
     if args['upstream']:
         print(module2upstream(args['modulename']))
