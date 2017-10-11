@@ -150,7 +150,11 @@ class Pymod2PkgTests(unittest.TestCase):
     def test_default_translation_py2py3_rdo(self):
         self.assertEqual(pymod2pkg.module2package('oslo.db', 'fedora',
                          py_vers=['py2', 'py3']),
-                         ['python2-oslo-db', 'python3-oslo-db'])
+                         ['python-oslo-db', 'python3-oslo-db'])
+        self.assertEqual(pymod2pkg.module2package('foobar', 'fedora',
+                         py_vers=['py', 'py2', 'py3']),
+                         ['python-foobar', 'python-foobar', 'python3-foobar'])
+
         self.assertEqual(pymod2pkg.module2package('Babel', 'fedora',
                          py_vers=['py2', 'py3']),
                          ['python-babel', 'python3-babel'])

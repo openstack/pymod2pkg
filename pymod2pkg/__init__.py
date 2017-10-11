@@ -79,7 +79,7 @@ def default_rdo_tr(mod):
     pkg = pkg.replace('_', '-').replace('.', '-').lower()
     if not pkg.startswith('python-'):
         pkg = 'python-' + pkg
-    py2pkg = re.sub('python', 'python2', pkg)
+    py2pkg = pkg
     py3pkg = re.sub('python', 'python3', pkg)
     return (pkg, py2pkg, py3pkg)
 
