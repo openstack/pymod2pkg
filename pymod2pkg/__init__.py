@@ -216,16 +216,16 @@ RDO_PKG_MAP = [
     MultiRule(
         # keep lists in alphabetic order
         mods=['aodh', 'barbican', 'ceilometer', 'cinder', 'cloudkitty',
-              'designate', 'ec2-api', 'glance', 'heat', 'heat-templates',
-              'ironic', 'ironic-discoverd', 'ironic-inspector',
-              'ironic-python-agent', 'karbor', 'keystone', 'magnum', 'manila',
-              'masakari', 'masakari-monitors', 'mistral', 'monasca-agent',
-              'monasca-api', 'monasca-ceilometer', 'monasca-log-api',
-              'monasca-notification', 'monasca-persister', 'monasca-transform',
-              'murano', 'neutron', 'neutron-fwaas', 'neutron-lbaas',
-              'neutron-vpnaas', 'nova', 'octavia', 'rally', 'sahara', 'swift',
-              'Tempest', 'tripleo-common', 'trove', 'tuskar', 'vitrage',
-              'zaqar'],
+              'designate', 'ec2-api', 'freezer', 'glance', 'heat',
+              'heat-templates', 'ironic', 'ironic-discoverd',
+              'ironic-inspector', 'ironic-python-agent', 'karbor', 'keystone',
+              'magnum', 'manila', 'masakari', 'masakari-monitors', 'mistral',
+              'monasca-agent', 'monasca-api', 'monasca-ceilometer',
+              'monasca-log-api', 'monasca-notification', 'monasca-persister',
+              'monasca-transform', 'murano', 'neutron', 'neutron-fwaas',
+              'neutron-lbaas', 'neutron-vpnaas', 'nova', 'octavia', 'rally',
+              'sahara', 'swift', 'Tempest', 'tripleo-common', 'trove',
+              'tuskar', 'vitrage', 'zaqar'],
         pkgfun=openstack_prefix_tr),
     # Horizon plugins (normalized to openstack-<project>-ui)
     RegexRule(pattern=r'\w+-(dashboard|ui)', pkgfun=rdo_horizon_plugins_tr),
@@ -243,7 +243,7 @@ SUSE_PKG_MAP = [
     # OpenStack services
     MultiRule(
         # keep lists in alphabetic order
-        mods=['ceilometer', 'cinder', 'designate', 'glance',
+        mods=['ceilometer', 'cinder', 'designate', 'freezer', 'glance',
               'heat', 'ironic', 'karbor', 'keystone', 'manila', 'masakari',
               'masakari-monitors', 'mistral',
               'monasca-agent', 'monasca-api', 'monasca-ceilometer',
