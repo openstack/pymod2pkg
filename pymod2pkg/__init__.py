@@ -250,8 +250,8 @@ SUSE_PKG_MAP = [
         # keep lists in alphabetic order
         mods=['ceilometer', 'cinder', 'designate', 'freezer',
               'freezer-api', 'freezer-dr', 'glance', 'heat', 'ironic',
-              'karbor', 'keystone', 'manila', 'masakari',
-              'masakari-monitors', 'mistral', 'monasca-agent',
+              'ironic-python-agent', 'karbor', 'keystone', 'manila',
+              'masakari', 'masakari-monitors', 'mistral', 'monasca-agent',
               'monasca-api', 'monasca-ceilometer', 'monasca-log-api',
               'monasca-notification', 'monasca-persister',
               'monasca-transform', 'neutron', 'nova', 'rally',
