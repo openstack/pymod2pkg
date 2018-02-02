@@ -266,14 +266,16 @@ SUSE_PKG_MAP = [
         pkgfun=subst_python2_python3),
     SingleRule('devel', 'python-devel', py3pkg='python3-devel'),
     # ui components
-    SingleRule('horizon', 'openstack-dashboard'),
     SingleRule('designate-dashboard', 'openstack-horizon-plugin-designate-ui'),
+    SingleRule('freezer-ui', 'openstack-horizon-plugin-freezer-ui'),
     SingleRule('group-based-policy-ui', 'openstack-horizon-plugin-gbp-ui'),
+    SingleRule('horizon', 'openstack-dashboard'),
     SingleRule('ironic-ui', 'openstack-horizon-plugin-ironic-ui'),
     SingleRule('magnum-ui', 'openstack-horizon-plugin-magnum-ui'),
     SingleRule('manila-ui', 'openstack-horizon-plugin-manila-ui'),
     SingleRule('monasca-ui', 'openstack-horizon-plugin-monasca-ui'),
     SingleRule('murano-dashboard', 'openstack-horizon-plugin-murano-ui'),
+    SingleRule('networking-vsphere', 'openstack-neutron-vsphere'),
     SingleRule('neutron-fwaas-dashboard',
                'openstack-horizon-plugin-neutron-fwaas-ui'),
     SingleRule('neutron-lbaas-dashboard',
@@ -282,7 +284,6 @@ SUSE_PKG_MAP = [
                'openstack-horizon-plugin-neutron-vpnaas-ui'),
     SingleRule('sahara-dashboard', 'openstack-horizon-plugin-sahara-ui'),
     SingleRule('trove-dashboard', 'openstack-horizon-plugin-trove-ui'),
-    SingleRule('networking-vsphere', 'openstack-neutron-vsphere'),
 ]
 
 UBUNTU_PKG_MAP = [
