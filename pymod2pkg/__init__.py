@@ -272,7 +272,7 @@ SUSE_PKG_MAP = [
     SingleRule('devel', 'python-devel', py3pkg='python3-devel'),
     # ui components
     SingleRule('designate-dashboard', 'openstack-horizon-plugin-designate-ui'),
-    SingleRule('freezer-ui', 'openstack-horizon-plugin-freezer-ui'),
+    SingleRule('freezer-web-ui', 'openstack-horizon-plugin-freezer-ui'),
     SingleRule('group-based-policy-ui', 'openstack-horizon-plugin-gbp-ui'),
     SingleRule('horizon', 'openstack-dashboard'),
     SingleRule('ironic-ui', 'openstack-horizon-plugin-ironic-ui'),
