@@ -150,6 +150,7 @@ RDO_PKG_MAP = [
     # This demonstrates per-dist filter
     # SingleRule('sphinx', 'python-sphinx',
     #           distmap={'epel-6': 'python-sphinx10'}),
+    SingleRule('ansible', 'ansible'),
     SingleRule('APScheduler', 'python-APScheduler',
                py3pkg='python3-APScheduler'),
     SingleRule('Babel', 'python-babel', py3pkg='python3-babel'),
