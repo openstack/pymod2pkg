@@ -199,6 +199,7 @@ RDO_PKG_MAP = [
     SingleRule('m2crypto', 'm2crypto'),
     SingleRule('libvirt-python', 'libvirt-python', py3pkg='libvirt-python3'),
     SingleRule('tempest-horizon', 'python-horizon-tests-tempest'),
+    SingleRule('rtslib-fb', 'python-rtslib', py3pkg='python3-rtslib'),
     # simple direct mapping no name change
     MultiRule(
         mods=['PyYAML', 'numpy', 'pyflakes', 'pylint', 'pyparsing',
