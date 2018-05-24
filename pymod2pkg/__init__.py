@@ -200,9 +200,10 @@ RDO_PKG_MAP = [
     SingleRule('libvirt-python', 'libvirt-python', py3pkg='libvirt-python3'),
     SingleRule('tempest-horizon', 'python-horizon-tests-tempest'),
     SingleRule('rtslib-fb', 'python-rtslib', py3pkg='python3-rtslib'),
+    SingleRule('PyYAML', 'python-yaml', py3pkg='python3-yaml'),
     # simple direct mapping no name change
     MultiRule(
-        mods=['PyYAML', 'numpy', 'pyflakes', 'pylint', 'pyparsing',
+        mods=['numpy', 'pyflakes', 'pylint',
               'dib-utils',
               'diskimage-builder',
               'graphviz',
@@ -216,7 +217,7 @@ RDO_PKG_MAP = [
               'sympy',
               'systemd-python',
               'watchdog',
-              'pystache', 'pytz', 'pysendfile'],
+              'pystache', 'pysendfile'],
         pkgfun=lambda mod: ((mod, mod, 'python3-' + mod))),
     # OpenStack services
     MultiRule(
