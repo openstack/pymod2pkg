@@ -223,7 +223,7 @@ RDO_PKG_MAP = [
     MultiRule(
         # keep lists in alphabetic order
         mods=['aodh', 'barbican', 'ceilometer', 'cinder',
-              'cloudkitty', 'designate', 'ec2-api', 'freezer',
+              'cloudkitty', 'cyborg', 'designate', 'ec2-api', 'freezer',
               'freezer-api', 'freezer-dr', 'glance', 'heat',
               'heat-templates', 'ironic', 'ironic-discoverd',
               'ironic-inspector', 'ironic-python-agent', 'karbor',
@@ -253,7 +253,7 @@ SUSE_PKG_MAP = [
     # OpenStack services
     MultiRule(
         # keep lists in alphabetic order
-        mods=['ceilometer', 'cinder', 'designate', 'freezer',
+        mods=['ceilometer', 'cinder', 'cyborg', 'designate', 'freezer',
               'freezer-api', 'freezer-dr', 'glance', 'heat', 'ironic',
               'ironic-python-agent', 'karbor', 'keystone', 'manila',
               'masakari', 'masakari-monitors', 'mistral', 'monasca-agent',
@@ -267,7 +267,7 @@ SUSE_PKG_MAP = [
     MultiRule(
         mods=['python-%sclient' % c for c in (
             'barbican', 'ceilometer', 'cinder', 'cloudkitty',
-            'congress', 'cue', 'designate', 'distil', 'drac', 'fuel',
+            'congress', 'cue', 'cyborg', 'designate', 'distil', 'drac', 'fuel',
             'freezer', 'heat', 'glance', 'glare', 'ironic',
             'ironic-inspector-', 'karbor', 'k8s', 'keystone',
             'magnum', 'manila', 'masakari', 'mistral', 'monasca',
