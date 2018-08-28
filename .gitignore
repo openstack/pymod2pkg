@@ -3,7 +3,7 @@ subunit.log
 .venv
 *,cover
 cover
-.testrepository
+.stestr
 *.pyc
 .idea
 *.sw?
