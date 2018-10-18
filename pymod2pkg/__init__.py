@@ -235,7 +235,7 @@ RDO_PKG_MAP = [
               'neutron-fwaas', 'neutron-lbaas', 'neutron-vpnaas',
               'nova', 'octavia', 'rally', 'sahara', 'swift',
               'Tempest', 'tripleo-common', 'trove', 'tuskar',
-              'vitrage', 'zaqar'],
+              'vitrage', 'watcher', 'zaqar'],
         pkgfun=openstack_prefix_tr),
     # Horizon plugins (normalized to openstack-<project>-ui)
     RegexRule(pattern=r'\w+-(dashboard|ui)', pkgfun=rdo_horizon_plugins_tr),
@@ -261,7 +261,7 @@ SUSE_PKG_MAP = [
               'monasca-notification', 'monasca-persister',
               'monasca-transform', 'neutron', 'nova', 'rally',
               'sahara', 'swift', 'Tempest', 'trove', 'tuskar',
-              'zaqar'],
+              'watcher', 'zaqar'],
         pkgfun=openstack_prefix_tr),
     # OpenStack clients
     MultiRule(
