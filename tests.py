@@ -94,6 +94,13 @@ class Pymod2PkgTests(unittest.TestCase):
                          'openstack-magnum-ui')
         self.assertEqual(pymod2pkg.module2package('zomg-dashboard', 'fedora'),
                          'openstack-zomg-ui')
+        self.assertEqual(pymod2pkg.module2package('sahara-dashboard',
+                                                  'suse'),
+                         'openstack-horizon-plugin-sahara-ui')
+        self.assertEqual(pymod2pkg.module2package('magnum-ui', 'suse'),
+                         'openstack-horizon-plugin-magnum-ui')
+        self.assertEqual(pymod2pkg.module2package('zomg-dashboard', 'suse'),
+                         'openstack-horizon-plugin-zomg-ui')
 
     def test_translation_tempest_plugins(self):
         self.assertEqual(pymod2pkg.module2package('keystone-tempest-plugin',

@@ -119,6 +119,12 @@ def rdo_horizon_plugins_tr(mod):
     return (pkg, '', '')
 
 
+def suse_horizon_plugins_tr(mod):
+    mod = mod.replace('dashboard', 'ui')
+    pkg = 'openstack-horizon-plugin-' + mod
+    return (pkg, '', '')
+
+
 def rdo_xstatic_tr(mod):
     mod = mod.replace('_', '-').replace('.', '-')
     pkg = 'python-' + mod
@@ -288,14 +294,7 @@ SUSE_PKG_MAP = [
     SingleRule('monasca-ui', 'openstack-horizon-plugin-monasca-ui'),
     SingleRule('murano-dashboard', 'openstack-horizon-plugin-murano-ui'),
     SingleRule('networking-vsphere', 'openstack-neutron-vsphere'),
-    SingleRule('neutron-fwaas-dashboard',
-               'openstack-horizon-plugin-neutron-fwaas-ui'),
-    SingleRule('neutron-lbaas-dashboard',
-               'openstack-horizon-plugin-neutron-lbaas-ui'),
-    SingleRule('neutron-vpnaas-dashboard',
-               'openstack-horizon-plugin-neutron-vpnaas-ui'),
-    SingleRule('sahara-dashboard', 'openstack-horizon-plugin-sahara-ui'),
-    SingleRule('trove-dashboard', 'openstack-horizon-plugin-trove-ui'),
+    RegexRule(pattern=r'\w+-(dashboard|ui)', pkgfun=suse_horizon_plugins_tr),
 ]
 
 UBUNTU_PKG_MAP = [
