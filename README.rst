@@ -36,7 +36,7 @@ repository at:
 Developers should also join the discussion on the mailing list,
 at:
 
-   http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-dev
+   http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-discuss
 
 or join the IRC channel on
 
