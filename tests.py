@@ -99,6 +99,9 @@ class Pymod2PkgTests(unittest.TestCase):
                          'openstack-horizon-plugin-sahara-ui')
         self.assertEqual(pymod2pkg.module2package('magnum-ui', 'suse'),
                          'openstack-horizon-plugin-magnum-ui')
+        self.assertEqual(pymod2pkg.module2package(
+            'neutron-fwaas-dashboard', 'suse'),
+            'openstack-horizon-plugin-neutron-fwaas-ui')
         self.assertEqual(pymod2pkg.module2package('zomg-dashboard', 'suse'),
                          'openstack-horizon-plugin-zomg-ui')
 

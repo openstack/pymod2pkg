@@ -244,7 +244,8 @@ RDO_PKG_MAP = [
               'vitrage', 'watcher', 'zaqar', 'zun'],
         pkgfun=openstack_prefix_tr),
     # Horizon plugins (normalized to openstack-<project>-ui)
-    RegexRule(pattern=r'\w+-(dashboard|ui)', pkgfun=rdo_horizon_plugins_tr),
+    RegexRule(pattern=r'^[\w-]+-(dashboard|ui)',
+              pkgfun=rdo_horizon_plugins_tr),
     # XStatic projects (name is python-pypi_name, no lowercase conversion)
     RegexRule(pattern=r'^XStatic.*', pkgfun=rdo_xstatic_tr),
     # Tempest plugins (normalized to python-<project>-tests-tempest)
@@ -294,7 +295,8 @@ SUSE_PKG_MAP = [
     SingleRule('monasca-ui', 'openstack-horizon-plugin-monasca-ui'),
     SingleRule('murano-dashboard', 'openstack-horizon-plugin-murano-ui'),
     SingleRule('networking-vsphere', 'openstack-neutron-vsphere'),
-    RegexRule(pattern=r'\w+-(dashboard|ui)', pkgfun=suse_horizon_plugins_tr),
+    RegexRule(pattern=r'^[\w-]+-(dashboard|ui)',
+              pkgfun=suse_horizon_plugins_tr),
 ]
 
 UBUNTU_PKG_MAP = [
