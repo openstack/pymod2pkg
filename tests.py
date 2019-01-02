@@ -102,8 +102,13 @@ class Pymod2PkgTests(unittest.TestCase):
         self.assertEqual(pymod2pkg.module2package(
             'neutron-fwaas-dashboard', 'suse'),
             'openstack-horizon-plugin-neutron-fwaas-ui')
+        self.assertEqual(pymod2pkg.module2package(
+            'horizon-plugin-neutron-fwaas-ui', 'suse'),
+            'python-horizon-plugin-neutron-fwaas-ui')
         self.assertEqual(pymod2pkg.module2package('zomg-dashboard', 'suse'),
                          'openstack-horizon-plugin-zomg-ui')
+        self.assertEqual(pymod2pkg.module2package('XStatic-jquery-ui', 'suse'),
+                         'python-XStatic-jquery-ui')
 
     def test_translation_tempest_plugins(self):
         self.assertEqual(pymod2pkg.module2package('keystone-tempest-plugin',

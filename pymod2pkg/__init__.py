@@ -243,11 +243,11 @@ RDO_PKG_MAP = [
               'Tempest', 'tripleo-common', 'trove', 'tuskar',
               'vitrage', 'watcher', 'zaqar', 'zun'],
         pkgfun=openstack_prefix_tr),
-    # Horizon plugins (normalized to openstack-<project>-ui)
-    RegexRule(pattern=r'^[\w-]+-(dashboard|ui)',
-              pkgfun=rdo_horizon_plugins_tr),
     # XStatic projects (name is python-pypi_name, no lowercase conversion)
     RegexRule(pattern=r'^XStatic.*', pkgfun=rdo_xstatic_tr),
+    # Horizon plugins (normalized to openstack-<project>-ui)
+    RegexRule(pattern=r'^(neutron-)?\w+-(dashboard|ui)',
+              pkgfun=rdo_horizon_plugins_tr),
     # Tempest plugins (normalized to python-<project>-tests-tempest)
     RegexRule(pattern=r'\w+-tempest-plugin', pkgfun=rdo_tempest_plugins_tr)
 ]
@@ -295,7 +295,7 @@ SUSE_PKG_MAP = [
     SingleRule('monasca-ui', 'openstack-horizon-plugin-monasca-ui'),
     SingleRule('murano-dashboard', 'openstack-horizon-plugin-murano-ui'),
     SingleRule('networking-vsphere', 'openstack-neutron-vsphere'),
-    RegexRule(pattern=r'^[\w-]+-(dashboard|ui)',
+    RegexRule(pattern=r'^(neutron-)?\w+-(dashboard|ui)',
               pkgfun=suse_horizon_plugins_tr),
 ]
 
