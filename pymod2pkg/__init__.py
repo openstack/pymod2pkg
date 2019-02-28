@@ -281,7 +281,7 @@ SUSE_PKG_MAP = [
             'murano', 'nimble', 'neutron', 'nova', 'octavia', 'oneview',
             'openstack', 'qinling', 'sahara', 'scci', 'searchlight', 'senlin',
             'smaug', 'solum', 'swift', 'tacker', 'tripleo', 'trove',
-            'vitrage', 'watcher', 'zaqar')],
+            'vitrage', 'watcher', 'zaqar', 'zun')],
         pkgfun=subst_python2_python3),
     SingleRule('devel', 'python-devel', py3pkg='python3-devel'),
     # ui components
