@@ -202,6 +202,7 @@ RDO_PKG_MAP = [
     SingleRule('xattr', 'pyxattr', py3pkg='python3-pyxattr'),
     SingleRule('XStatic-term.js', 'python-XStatic-termjs',
                py3pkg='python3-XStatic-termjs'),
+    SingleRule('heat-cfntools', 'heat-cfntools'),
     SingleRule('horizon', 'openstack-dashboard'),
     SingleRule('networking-vsphere', 'openstack-neutron-vsphere'),
     SingleRule('m2crypto', 'm2crypto'),
