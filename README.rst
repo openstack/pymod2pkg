@@ -31,7 +31,7 @@ Developers wishing to work on pymod2pkg should always base
 their work on the latest code, available from the master GIT
 repository at:
 
-   https://git.openstack.org/cgit/openstack/pymod2pkg
+   https://opendev.org/openstack/pymod2pkg
 
 Developers should also join the discussion on the mailing list,
 at:
