@@ -205,6 +205,7 @@ RDO_PKG_MAP = [
     SingleRule('heat-cfntools', 'heat-cfntools'),
     SingleRule('horizon', 'openstack-dashboard'),
     SingleRule('networking-vsphere', 'openstack-neutron-vsphere'),
+    SingleRule('networking-l2gw', 'openstack-neutron-l2gw'),
     SingleRule('m2crypto', 'm2crypto'),
     SingleRule('libvirt-python', 'libvirt-python', py3pkg='libvirt-python3'),
     SingleRule('tempest-horizon', 'python-horizon-tests-tempest'),
@@ -300,6 +301,7 @@ SUSE_PKG_MAP = [
     SingleRule('monasca-ui', 'openstack-horizon-plugin-monasca-ui'),
     SingleRule('murano-dashboard', 'openstack-horizon-plugin-murano-ui'),
     SingleRule('networking-vsphere', 'openstack-neutron-vsphere'),
+    SingleRule('networking-l2gw', 'openstack-neutron-l2gw'),
     RegexRule(pattern=r'^(neutron-)?\w+-(dashboard|ui)',
               pkgfun=suse_horizon_plugins_tr),
 ]
