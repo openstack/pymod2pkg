@@ -44,6 +44,8 @@ class Pymod2PkgTests(unittest.TestCase):
     def test_translation_suse(self):
         self.assertEqual(pymod2pkg.module2package('nova', 'suse'),
                          'openstack-nova')
+        self.assertEqual(pymod2pkg.module2package('barbican', 'suse'),
+                         'openstack-barbican')
         self.assertEqual(pymod2pkg.module2package('aodhclient',
                                                   'suse'),
                          'python-aodhclient')

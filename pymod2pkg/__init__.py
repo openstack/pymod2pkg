@@ -264,15 +264,16 @@ SUSE_PKG_MAP = [
     # OpenStack services
     MultiRule(
         # keep lists in alphabetic order
-        mods=['ceilometer', 'cinder', 'cyborg', 'designate', 'freezer',
-              'freezer-api', 'freezer-dr', 'glance', 'heat', 'ironic',
-              'ironic-python-agent', 'karbor', 'keystone', 'manila',
-              'masakari', 'masakari-monitors', 'mistral', 'monasca-agent',
-              'monasca-api', 'monasca-ceilometer', 'monasca-log-api',
-              'monasca-notification', 'monasca-persister',
-              'monasca-transform', 'neutron', 'nova', 'rally',
-              'sahara', 'swift', 'Tempest', 'trove', 'tuskar',
-              'watcher', 'zaqar', 'zun'],
+        mods=[
+            'aodh', 'barbican', 'ceilometer', 'cinder', 'cyborg', 'designate',
+            'freezer', 'freezer-api', 'freezer-dr', 'glance', 'heat',
+            'ironic', 'ironic-python-agent', 'karbor', 'keystone', 'manila',
+            'masakari', 'masakari-monitors', 'mistral', 'monasca-agent',
+            'monasca-api', 'monasca-ceilometer', 'monasca-log-api',
+            'monasca-notification', 'monasca-persister',
+            'monasca-transform', 'neutron', 'nova', 'rally',
+            'sahara', 'swift', 'Tempest', 'trove', 'tuskar',
+            'watcher', 'zaqar', 'zun'],
         pkgfun=openstack_prefix_tr),
     # OpenStack clients
     MultiRule(
