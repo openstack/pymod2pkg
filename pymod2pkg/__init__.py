@@ -152,6 +152,21 @@ def rdo_tempest_plugins_tr(mod):
     return (pkg, py2pkg, py3pkg)
 
 
+# keep lists in alphabetic order
+SERVICES_MAP = [
+    'Tempest', 'aodh', 'barbican', 'ceilometer', 'cinder',
+    'cloudkitty', 'cyborg', 'designate', 'ec2-api', 'freezer', 'freezer-api',
+    'freezer-dr', 'glance', 'heat', 'heat-templates', 'ironic',
+    'ironic-discoverd', 'ironic-inspector', 'ironic-python-agent', 'karbor',
+    'keystone', 'magnum', 'manila', 'masakari', 'masakari-monitors',
+    'mistral', 'monasca-agent', 'monasca-api', 'monasca-ceilometer',
+    'monasca-log-api', 'monasca-notification', 'monasca-persister',
+    'monasca-transform', 'murano', 'neutron', 'neutron-fwaas',
+    'neutron-lbaas', 'neutron-vpnaas', 'nova', 'octavia', 'rally',
+    'sahara', 'swift', 'tripleo-common', 'trove', 'tuskar',
+    'vitrage', 'watcher', 'zaqar', 'zun']
+
+
 RDO_PKG_MAP = [
     # This demonstrates per-dist filter
     # SingleRule('sphinx', 'python-sphinx',
@@ -232,23 +247,7 @@ RDO_PKG_MAP = [
               'pystache', 'pysendfile'],
         pkgfun=lambda mod: ((mod, mod, 'python3-' + mod))),
     # OpenStack services
-    MultiRule(
-        # keep lists in alphabetic order
-        mods=['aodh', 'barbican', 'ceilometer', 'cinder',
-              'cloudkitty', 'cyborg', 'designate', 'ec2-api', 'freezer',
-              'freezer-api', 'freezer-dr', 'glance', 'heat',
-              'heat-templates', 'ironic', 'ironic-discoverd',
-              'ironic-inspector', 'ironic-python-agent', 'karbor',
-              'keystone', 'magnum', 'manila', 'masakari',
-              'masakari-monitors', 'mistral', 'monasca-agent',
-              'monasca-api', 'monasca-ceilometer', 'monasca-log-api',
-              'monasca-notification', 'monasca-persister',
-              'monasca-transform', 'murano', 'neutron',
-              'neutron-fwaas', 'neutron-lbaas', 'neutron-vpnaas',
-              'nova', 'octavia', 'rally', 'sahara', 'swift',
-              'Tempest', 'tripleo-common', 'trove', 'tuskar',
-              'vitrage', 'watcher', 'zaqar', 'zun'],
-        pkgfun=openstack_prefix_tr),
+    MultiRule(mods=SERVICES_MAP, pkgfun=openstack_prefix_tr),
     # XStatic projects (name is python-pypi_name, no lowercase conversion)
     RegexRule(pattern=r'^XStatic.*', pkgfun=rdo_xstatic_tr),
     # Horizon plugins (normalized to openstack-<project>-ui)
@@ -264,19 +263,7 @@ SUSE_PKG_MAP = [
     SingleRule('ansible', 'ansible'),
     SingleRule('python-ldap', 'python-ldap'),
     # OpenStack services
-    MultiRule(
-        # keep lists in alphabetic order
-        mods=[
-            'aodh', 'barbican', 'ceilometer', 'cinder', 'cyborg', 'designate',
-            'freezer', 'freezer-api', 'freezer-dr', 'glance', 'heat',
-            'ironic', 'ironic-python-agent', 'karbor', 'keystone', 'manila',
-            'masakari', 'masakari-monitors', 'mistral', 'monasca-agent',
-            'monasca-api', 'monasca-ceilometer', 'monasca-log-api',
-            'monasca-notification', 'monasca-persister',
-            'monasca-transform', 'neutron', 'nova', 'rally',
-            'sahara', 'swift', 'Tempest', 'trove', 'tuskar',
-            'watcher', 'zaqar', 'zun'],
-        pkgfun=openstack_prefix_tr),
+    MultiRule(mods=SERVICES_MAP, pkgfun=openstack_prefix_tr),
     # OpenStack clients
     MultiRule(
         mods=['python-%sclient' % c for c in (
