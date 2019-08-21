@@ -162,8 +162,8 @@ SERVICES_MAP = [
     'mistral', 'monasca-agent', 'monasca-api', 'monasca-ceilometer',
     'monasca-log-api', 'monasca-notification', 'monasca-persister',
     'monasca-transform', 'murano', 'neutron', 'neutron-fwaas',
-    'neutron-lbaas', 'neutron-vpnaas', 'nova', 'octavia', 'rally',
-    'sahara', 'swift', 'tripleo-common', 'trove', 'tuskar',
+    'neutron-lbaas', 'neutron-vpnaas', 'nova', 'octavia', 'placement',
+    'rally', 'sahara', 'swift', 'tripleo-common', 'trove', 'tuskar',
     'vitrage', 'watcher', 'zaqar', 'zun']
 
 
