@@ -62,6 +62,8 @@ class Pymod2PkgTests(unittest.TestCase):
                          'openstack-tempest')
         self.assertEqual(pymod2pkg.module2package('heat-agents', 'suse'),
                          'openstack-heat-agents')
+        self.assertEqual(pymod2pkg.module2package(
+            'openstack-placement', 'suse'), 'openstack-placement')
 
     def test_translation_ubuntu(self):
         self.assertEqual(pymod2pkg.module2package('nova', 'ubuntu'),

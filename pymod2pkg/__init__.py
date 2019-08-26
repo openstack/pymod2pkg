@@ -219,6 +219,7 @@ RDO_PKG_MAP = [
                py3pkg='python3-XStatic-termjs'),
     SingleRule('heat-cfntools', 'heat-cfntools'),
     SingleRule('horizon', 'openstack-dashboard'),
+    SingleRule('openstack-placement', 'openstack-placement'),
     SingleRule('networking-vsphere', 'openstack-neutron-vsphere'),
     SingleRule('networking-l2gw', 'openstack-neutron-l2gw'),
     SingleRule('m2crypto', 'm2crypto'),
@@ -278,6 +279,7 @@ SUSE_PKG_MAP = [
             'vitrage', 'watcher', 'zaqar', 'zun')],
         pkgfun=subst_python2_python3),
     SingleRule('devel', 'python-devel', py3pkg='python3-devel'),
+    SingleRule('openstack-placement', 'openstack-placement'),
     # ui components
     SingleRule('designate-dashboard', 'openstack-horizon-plugin-designate-ui'),
     SingleRule('freezer-web-ui', 'openstack-horizon-plugin-freezer-ui'),
