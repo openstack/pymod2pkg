@@ -163,7 +163,7 @@ SERVICES_MAP = [
     'monasca-log-api', 'monasca-notification', 'monasca-persister',
     'monasca-transform', 'murano', 'neutron', 'neutron-fwaas',
     'neutron-lbaas', 'neutron-vpnaas', 'nova', 'octavia', 'placement',
-    'rally', 'sahara', 'swift', 'tripleo-common', 'trove', 'tuskar',
+    'rally', 'sahara', 'swift', 'tempest', 'tripleo-common', 'trove', 'tuskar',
     'vitrage', 'watcher', 'zaqar', 'zun']
 
 

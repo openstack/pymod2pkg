@@ -60,6 +60,8 @@ class Pymod2PkgTests(unittest.TestCase):
                          'python-neutronclient')
         self.assertEqual(pymod2pkg.module2package('Tempest', 'suse'),
                          'openstack-tempest')
+        self.assertEqual(pymod2pkg.module2package('tempest', 'suse'),
+                         'openstack-tempest')
         self.assertEqual(pymod2pkg.module2package('heat-agents', 'suse'),
                          'openstack-heat-agents')
         self.assertEqual(pymod2pkg.module2package(
