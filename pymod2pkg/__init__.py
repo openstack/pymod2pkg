@@ -229,6 +229,9 @@ RDO_PKG_MAP = [
     SingleRule('PyYAML', 'python-yaml', py3pkg='python3-yaml'),
     SingleRule('semantic_version', 'python-semantic_version',
                py3pkg='python3-semantic_version'),
+    SingleRule('sphinxcontrib-svg2pdfconverter',
+               'python-sphinxcontrib-rsvgconverter',
+               py3pkg='python3-sphinxcontrib-rsvgconverter'),
     # simple direct mapping no name change
     MultiRule(
         mods=['numpy', 'pyflakes', 'pylint',
