@@ -183,7 +183,6 @@ RDO_PKG_MAP = [
     SingleRule('GitPython', 'GitPython', py3pkg='python3-GitPython'),
     SingleRule('heat-agents', 'openstack-heat-agents',
                py3pkg='openstack-heat-agents'),
-    SingleRule('pyOpenSSL', 'pyOpenSSL', py3pkg='python3-pyOpenSSL'),
     SingleRule('IPy', 'python-IPy', py3pkg='python-IPy-python3'),
     SingleRule('pycrypto', 'python-crypto', py3pkg='python3-crypto'),
     SingleRule('pyzmq', 'python-zmq', py3pkg='python3-zmq'),
