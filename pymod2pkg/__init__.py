@@ -227,6 +227,7 @@ RDO_PKG_MAP = [
     SingleRule('tempest-horizon', 'python-horizon-tests-tempest'),
     SingleRule('rtslib-fb', 'python-rtslib', py3pkg='python3-rtslib'),
     SingleRule('PyYAML', 'python-yaml', py3pkg='python3-yaml'),
+    SingleRule('pyOpenSSL', 'python-pyOpenSSL', py3pkg='python3-pyOpenSSL'),
     SingleRule('semantic_version', 'python-semantic_version',
                py3pkg='python3-semantic_version'),
     SingleRule('sphinxcontrib-svg2pdfconverter',
