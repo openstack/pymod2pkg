@@ -89,8 +89,8 @@ class Pymod2PkgTests(unittest.TestCase):
         self.assertEqual(pymod2pkg.module2upstream('oslo.db'), 'oslo.db')
         self.assertEqual(pymod2pkg.module2upstream('python-glanceclient'),
                          'python-glanceclient')
-        self.assertEqual(pymod2pkg.module2upstream('openstacksdk'),
-                         'python-openstacksdk')
+        self.assertEqual(pymod2pkg.module2upstream('openstack-placement'),
+                         'placement')
         self.assertNotEqual(pymod2pkg.module2upstream('keystoneauth1'),
                             'keystoneauth1')
 

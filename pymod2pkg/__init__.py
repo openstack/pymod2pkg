@@ -330,7 +330,7 @@ UBUNTU_PKG_MAP = [
 ]
 
 OPENSTACK_UPSTREAM_PKG_MAP = [
-    SingleRule('openstacksdk', 'python-openstacksdk'),
+    SingleRule('openstack-placement', 'placement'),
     SingleRule('gnocchiclient', 'python-gnocchiclient'),
     SingleRule('aodhclient', 'python-aodhclient'),
     SingleRule('keystoneauth1', 'keystoneauth'),
