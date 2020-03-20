@@ -13,7 +13,7 @@
 from __future__ import print_function
 
 import argparse
-import platform
+import distro
 import re
 
 
@@ -340,17 +340,19 @@ OPENSTACK_UPSTREAM_PKG_MAP = [
 
 
 def get_pkg_map(dist):
-    if dist.lower().find('suse') != -1:
+    d_lower = dist.lower()
+    if 'suse' in d_lower or 'sles' in d_lower:
         return SUSE_PKG_MAP
-    if dist.lower().find('ubuntu') != -1:
+    if 'ubuntu' in d_lower:
         return UBUNTU_PKG_MAP
     return RDO_PKG_MAP
 
 
 def get_default_tr_func(dist):
-    if dist.lower().find('suse') != -1:
+    d_lower = dist.lower()
+    if 'suse' in d_lower or 'sles' in d_lower:
         return default_suse_tr
-    if dist.lower().find('ubuntu') != -1:
+    if 'ubuntu' in d_lower:
         return default_ubuntu_tr
     return default_rdo_tr
 
@@ -360,7 +362,7 @@ def module2package(mod, dist, pkg_map=None, py_vers=('py',)):
 
     mod: python module name
     dist: a linux distribution as returned by
-          `platform.linux_distribution()[0]`
+          `distro.LinuxDistribution().id().partition(' ')[0]`
     pkg_map: a custom package mapping. None means autodetected based on the
              given dist parameter
     py_vers: a list of python versions the function should return. Default is
@@ -412,9 +414,9 @@ def main():
     parser = argparse.ArgumentParser(description='Python module name to'
                                      'package name')
     group = parser.add_mutually_exclusive_group()
-    group.add_argument('--dist', help='distribution style '
-                       '(default: %(default)s)',
-                       default=platform.linux_distribution()[0])
+    group.add_argument(
+        '--dist', help='distribution style (default: %(default)s)',
+        default=distro.LinuxDistribution().id().partition(' ')[0])
     group.add_argument('--upstream', help='map to OpenStack project name',
                        action='store_true')
     parser.add_argument('--pyver', help='Python versions to return. "py" is '
