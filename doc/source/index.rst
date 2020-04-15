@@ -21,7 +21,7 @@ waiting for next release, I suggest using the git repo directly a la
 
 .. code-block:: shell
 
-   git clone https://git.openstack.org/openstack/pymod2pkg
+   git clone https://opendev.org/openstack/pymod2pkg.git
    cd pymod2pkg
    python setup.py develop --user
 
