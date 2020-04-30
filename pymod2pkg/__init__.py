@@ -172,6 +172,8 @@ RDO_PKG_MAP = [
     # SingleRule('sphinx', 'python-sphinx',
     #           distmap={'epel-6': 'python-sphinx10'}),
     SingleRule('ansible', 'ansible'),
+    SingleRule('ansible-runner', 'python-ansible-runner',
+               py3pkg='python3-ansible-runner'),
     SingleRule('APScheduler', 'python-APScheduler',
                py3pkg='python3-APScheduler'),
     SingleRule('Babel', 'python-babel', py3pkg='python3-babel'),
@@ -266,6 +268,7 @@ RDO_PKG_MAP = [
 SUSE_PKG_MAP = [
     # not following SUSE naming policy
     SingleRule('ansible', 'ansible'),
+    SingleRule('ansible-runner', 'ansible-runner'),
     SingleRule('python-ldap', 'python-ldap'),
     # OpenStack services
     MultiRule(mods=SERVICES_MAP, pkgfun=openstack_prefix_tr),
