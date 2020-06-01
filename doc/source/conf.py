@@ -38,7 +38,12 @@ add_function_parentheses = True
 add_module_names = True
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'native'
+
+# openstackdocstheme options
+openstackdocs_repo_name = 'openstack/pymod2pkg'
+openstackdocs_bug_project = 'pymod2pkg'
+openstackdocs_bug_tag = ''
 
 # -- Options for HTML output --------------------------------------------------
 
@@ -50,9 +55,6 @@ html_static_path = ['static']
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = '%sdoc' % project
-
-git_cmd = "git log --pretty=format:'%ad, commit %h' --date=local -n1"
-html_last_updated_fmt = os.popen(git_cmd).read()
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass
