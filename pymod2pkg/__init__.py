@@ -279,7 +279,7 @@ SUSE_PKG_MAP = [
             'ironic-inspector-', 'karbor', 'k8s', 'keystone',
             'magnum', 'manila', 'masakari', 'mistral', 'monasca',
             'murano', 'nimble', 'neutron', 'nova', 'octavia', 'oneview',
-            'openstack', 'qinling', 'sahara', 'scci', 'searchlight', 'senlin',
+            'openstack', 'qinling', 'sahara', 'scci', 'senlin',
             'smaug', 'solum', 'swift', 'tacker', 'tripleo', 'trove',
             'vitrage', 'watcher', 'zaqar', 'zun')],
         pkgfun=subst_python2_python3),
