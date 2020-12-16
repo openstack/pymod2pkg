@@ -278,7 +278,7 @@ SUSE_PKG_MAP = [
             'barbican', 'ceilometer', 'cinder', 'cloudkitty',
             'congress', 'cue', 'cyborg', 'designate', 'distil', 'drac', 'fuel',
             'freezer', 'heat', 'glance', 'glare', 'ironic',
-            'ironic-inspector-', 'karbor', 'k8s', 'keystone',
+            'ironic-inspector-', 'k8s', 'keystone',
             'magnum', 'manila', 'masakari', 'mistral', 'monasca',
             'murano', 'nimble', 'neutron', 'nova', 'octavia', 'oneview',
             'openstack', 'sahara', 'scci', 'senlin',
@@ -321,7 +321,7 @@ UBUNTU_PKG_MAP = [
         mods=['python-%sclient' % c for c in (
             'barbican', 'ceilometer', 'cinder', 'cloudkitty', 'congress',
             'designate', 'fuel', 'heat', 'glance', 'ironic',
-            'karbor',  'keystone',
+            'keystone',
             'magnum', 'manila', 'masakari', 'mistral', 'monasca',
             'murano', 'neutron', 'nova', 'octavia',
             'openstack', 'sahara',
