@@ -198,6 +198,8 @@ RDO_PKG_MAP = [
     SingleRule('nosexcover', 'python-nose-xcover',
                py3pkg='python3-nose-xcover'),
     SingleRule('posix_ipc', 'python-posix_ipc', py3pkg='python3-posix_ipc'),
+    SingleRule('prometheus-client', 'python-prometheus_client',
+               py3pkg='python3-prometheus_client'),
     SingleRule('sysv_ipc', 'python-sysv_ipc', py3pkg='python3-sysv_ipc'),
     SingleRule('oslosphinx', 'python-oslo-sphinx',
                py3pkg='python3-oslo-sphinx'),
