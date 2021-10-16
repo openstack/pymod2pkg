@@ -155,7 +155,7 @@ SERVICES_MAP = [
     'Tempest', 'aodh', 'barbican', 'ceilometer', 'cinder',
     'cloudkitty', 'cyborg', 'designate', 'ec2-api', 'freezer', 'freezer-api',
     'freezer-dr', 'glance', 'heat', 'heat-templates', 'ironic',
-    'ironic-discoverd', 'ironic-inspector', 'ironic-python-agent', 'karbor',
+    'ironic-discoverd', 'ironic-inspector', 'ironic-python-agent',
     'keystone', 'magnum', 'manila', 'masakari', 'masakari-monitors',
     'mistral', 'monasca-agent', 'monasca-api', 'monasca-ceilometer',
     'monasca-log-api', 'monasca-notification', 'monasca-persister',
