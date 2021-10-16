@@ -307,7 +307,6 @@ SUSE_PKG_MAP = [
 ]
 
 UBUNTU_PKG_MAP = [
-    SingleRule('django_openstack_auth', 'python-openstack-auth'),
     SingleRule('glance_store', 'python-glance-store'),
     SingleRule('GitPython', 'python-git'),
     SingleRule('libvirt-python', 'python-libvirt'),
