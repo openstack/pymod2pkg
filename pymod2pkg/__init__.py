@@ -208,6 +208,7 @@ RDO_PKG_MAP = [
     SingleRule('pyScss', 'python-scss', py3pkg='python3-scss'),
     SingleRule('tripleo-incubator', 'openstack-tripleo'),
     SingleRule('pika-pool', 'python-pika_pool', py3pkg='python3-pika_pool'),
+    SingleRule('suds-community', 'python-suds', py3pkg='python3-suds'),
     SingleRule('suds-jurko', 'python-suds', py3pkg='python3-suds'),
     SingleRule('supervisor', 'supervisor', py3pkg='python3-supervisor'),
     SingleRule('wsgi_intercept', 'python-wsgi_intercept',
