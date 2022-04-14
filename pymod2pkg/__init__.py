@@ -248,8 +248,6 @@ RDO_PKG_MAP = [
               'os-net-config',
               'os-refresh-config',
               'pexpect',
-              'protobuf',
-              'sympy',
               'systemd-python',
               'watchdog',
               'pystache', 'pysendfile'],
