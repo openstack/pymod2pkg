@@ -233,6 +233,8 @@ RDO_PKG_MAP = [
     SingleRule('pyOpenSSL', 'python-pyOpenSSL', py3pkg='python3-pyOpenSSL'),
     SingleRule('semantic_version', 'python-semantic_version',
                py3pkg='python3-semantic_version'),
+    SingleRule('semantic-version', 'python-semantic_version',
+               py3pkg='python3-semantic_version'),
     SingleRule('sphinxcontrib-svg2pdfconverter',
                'python-sphinxcontrib-rsvgconverter',
                py3pkg='python3-sphinxcontrib-rsvgconverter'),
