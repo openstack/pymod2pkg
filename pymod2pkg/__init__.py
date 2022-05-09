@@ -204,6 +204,8 @@ RDO_PKG_MAP = [
     SingleRule('oslosphinx', 'python-oslo-sphinx',
                py3pkg='python3-oslo-sphinx'),
     SingleRule('ovs', 'python-openvswitch', py3pkg='python3-openvswitch'),
+    SingleRule('psycopg2-binary', 'python-psycopg2',
+               py3pkg='python3-psycopg2'),
     SingleRule('pyinotify', 'python-inotify', py3pkg='python3-inotify'),
     SingleRule('pyScss', 'python-scss', py3pkg='python3-scss'),
     SingleRule('tripleo-incubator', 'openstack-tripleo'),
