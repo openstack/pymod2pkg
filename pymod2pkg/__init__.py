@@ -108,19 +108,19 @@ def default_suse_tr(mod):
 
 def openstack_prefix_tr(mod):
     pkg = 'openstack-' + mod.lower()
-    return (pkg, '', '')
+    return (pkg, pkg, pkg)
 
 
 def rdo_horizon_plugins_tr(mod):
     mod = mod.replace('dashboard', 'ui')
     pkg = 'openstack-' + mod
-    return (pkg, '', '')
+    return (pkg, pkg, pkg)
 
 
 def suse_horizon_plugins_tr(mod):
     mod = mod.replace('dashboard', 'ui')
     pkg = 'openstack-horizon-plugin-' + mod
-    return (pkg, '', '')
+    return (pkg, pkg, pkg)
 
 
 def rdo_xstatic_tr(mod):

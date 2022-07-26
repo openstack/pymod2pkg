@@ -132,7 +132,8 @@ class Pymod2PkgTests(unittest.TestCase):
     def test_translation_py2py3_suse(self):
         self.assertEqual(pymod2pkg.module2package('nova', 'suse',
                          py_vers=['py', 'py2', 'py3']),
-                         ['openstack-nova', '', ''])
+                         ['openstack-nova', 'openstack-nova',
+                          'openstack-nova'])
         self.assertEqual(pymod2pkg.module2package('aodhclient',
                          'suse', py_vers=['py2', 'py3']),
                          ['python2-aodhclient', 'python3-aodhclient'])
@@ -149,7 +150,8 @@ class Pymod2PkgTests(unittest.TestCase):
                          ['python2-neutronclient', 'python3-neutronclient'])
         self.assertEqual(pymod2pkg.module2package('Tempest', 'suse',
                          py_vers=['py', 'py2', 'py3']),
-                         ['openstack-tempest', '', ''])
+                         ['openstack-tempest', 'openstack-tempest',
+                          'openstack-tempest'])
         self.assertEqual(pymod2pkg.module2package('devel', 'suse',
                          py_vers=['py2', 'py3']),
                          ['python-devel', 'python3-devel'])
@@ -179,7 +181,8 @@ class Pymod2PkgTests(unittest.TestCase):
                          ['python-babel', 'python3-babel'])
         self.assertEqual(pymod2pkg.module2package('nova', 'fedora',
                          py_vers=['py', 'py2', 'py3']),
-                         ['openstack-nova', '', ''])
+                         ['openstack-nova', 'openstack-nova',
+                          'openstack-nova'])
 
 
 class RegexRuleTests(unittest.TestCase):
