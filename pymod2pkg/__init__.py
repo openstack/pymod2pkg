@@ -228,10 +228,10 @@ RDO_PKG_MAP = [
     SingleRule('networking-l2gw', 'openstack-neutron-l2gw'),
     SingleRule('neutron-dynamic-routing', 'openstack-neutron-dynamic-routing'),
     SingleRule('m2crypto', 'm2crypto'),
-    SingleRule('libvirt-python', 'libvirt-python', py3pkg='libvirt-python3'),
+    SingleRule('libvirt-python', 'python-libvirt', py3pkg='python3-libvirt'),
     SingleRule('tempest-horizon', 'python-horizon-tests-tempest'),
     SingleRule('rtslib-fb', 'python-rtslib', py3pkg='python3-rtslib'),
-    SingleRule('PyYAML', 'python-yaml', py3pkg='python3-yaml'),
+    SingleRule('PyYAML', 'python-pyyaml', py3pkg='python3-pyyaml'),
     SingleRule('pyOpenSSL', 'python-pyOpenSSL', py3pkg='python3-pyOpenSSL'),
     SingleRule('semantic_version', 'python-semantic_version',
                py3pkg='python3-semantic_version'),
@@ -240,11 +240,14 @@ RDO_PKG_MAP = [
     SingleRule('sphinxcontrib-svg2pdfconverter',
                'python-sphinxcontrib-rsvgconverter',
                py3pkg='python3-sphinxcontrib-rsvgconverter'),
+    SingleRule('systemd-python', 'python-systemd', py3pkg='python3-systemd'),
     # simple direct mapping no name change
     MultiRule(
+        mods=['dib-utils', 'diskimage-builder'],
+        pkgfun=lambda mod: ((mod, mod, mod))),
+    # simple direct mapping no name change - except for python3
+    MultiRule(
         mods=['numpy', 'pyflakes', 'pylint',
-              'dib-utils',
-              'diskimage-builder',
               'graphviz',
               'instack-undercloud',
               'os-apply-config',
@@ -252,7 +255,6 @@ RDO_PKG_MAP = [
               'os-net-config',
               'os-refresh-config',
               'pexpect',
-              'systemd-python',
               'watchdog',
               'pystache', 'pysendfile'],
         pkgfun=lambda mod: ((mod, mod, 'python3-' + mod))),
