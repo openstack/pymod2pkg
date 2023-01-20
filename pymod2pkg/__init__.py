@@ -104,6 +104,20 @@ def default_suse_tr(mod):
     return (pkg, py2pkg, py3pkg)
 
 
+def default_suse_py39_tr(mod):
+    """
+    Default translation function for openSUSE, SLES, and other
+    SUSE based systems that have python 3.9
+
+    Returns a tuple of 3 elements - the unversioned name, the python2 versioned
+    name and the python3 versioned name.
+    """
+    pkg = 'python-%s' % mod
+    py2pkg = 'python2-%s' % mod
+    py3pkg = 'python39-%s' % mod
+    return (pkg, py2pkg, py3pkg)
+
+
 def openstack_prefix_tr(mod):
     pkg = 'openstack-' + mod.lower()
     return (pkg, pkg, pkg)
@@ -268,7 +282,7 @@ RDO_PKG_MAP = [
 ]
 
 
-SUSE_PKG_MAP = [
+SUSE_COMMON_PKG_MAP = [
     # not following SUSE naming policy
     SingleRule('ansible', 'ansible'),
     SingleRule('ansible-runner', 'ansible-runner'),
@@ -309,6 +323,13 @@ SUSE_PKG_MAP = [
               pkgfun=suse_horizon_plugins_tr),
 ]
 
+SUSE_PKG_MAP = SUSE_COMMON_PKG_MAP
+
+SUSE_PY39_PKG_MAP = SUSE_COMMON_PKG_MAP
+SUSE_PY39_PKG_MAP.extend([
+    SingleRule('devel', 'python-devel', 'python39-devel'),
+])
+
 UBUNTU_PKG_MAP = [
     SingleRule('glance_store', 'python-glance-store'),
     SingleRule('GitPython', 'python-git'),
@@ -346,6 +367,8 @@ OPENSTACK_UPSTREAM_PKG_MAP = [
 
 def get_pkg_map(dist):
     d_lower = dist.lower()
+    if 'suse_py39' in d_lower:
+        return SUSE_PY39_PKG_MAP
     if 'suse' in d_lower or 'sles' in d_lower:
         return SUSE_PKG_MAP
     if 'ubuntu' in d_lower:
@@ -355,6 +378,8 @@ def get_pkg_map(dist):
 
 def get_default_tr_func(dist):
     d_lower = dist.lower()
+    if 'suse_py39' in d_lower:
+        return default_suse_py39_tr
     if 'suse' in d_lower or 'sles' in d_lower:
         return default_suse_tr
     if 'ubuntu' in d_lower:
